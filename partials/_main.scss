@@ -1,0 +1,66 @@
+main {
+    height: 100vh;
+    background-color: $secondaryBackground;
+    line-height: 2.3rem;
+}
+
+.sectionHint .container {
+    display: flex;
+    align-items: center;
+    padding-top: 2rem;
+
+    h2, span {
+        width: 50%;
+        border: 1px solid red;
+    }
+
+    span {
+        font-size: 2rem;
+        text-align: center;
+    }
+}
+
+.sectionHint p {
+    margin: 1rem 0;
+}
+
+.secretWord {
+    padding-top: 5%;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.secretLetter {
+    display: inline-block;
+    width: 4rem;
+    height: 4rem;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 10%;
+    padding: 0.5rem;
+}
+
+.space {
+    background-color: gray;
+}
+
+.alphaKeys {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 10%;
+
+    button {
+        width: 5rem;
+        height: 5rem;
+        font-size: 2rem;
+        margin: 0.3rem;
+    }
+}
+
+.correctGuess {
+    font-weight: 700;
+    font-size: 2.5rem;
+    background-color: $white;
+}

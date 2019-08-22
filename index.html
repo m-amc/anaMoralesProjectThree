@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="keywords" content="Web Development Bootcamp, Project 3, Guess the word">
+    <meta name="description" content="Guess the word game">
+    <meta name="author" content="Ana Morales">
+
+    <link href="https://fonts.googleapis.com/css?family=Livvic:400,700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles/style.css">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+
+    <script src="https://kit.fontawesome.com/676c4290d0.js"></script>
+    <title>Guess The Word!</title>
+</head>
+
+<body>
+    <header>
+        <div class="headerContainer wrapper">
+            <h1>Guess the word!</h1>
+            <div>
+                <h2>Instructions</h2>
+                <ul>
+                    <li>A secret word will be randomly generated for you to guess</li>
+                    <li>Start guessing letters by choosing a letter below. You have a maximum of <strong>5</strong> wrong guesses </li>
+                    <li>If your guess matches any of the letter in the secret word, it will be revealed in the boxes</li>
+                    <li>if you reached the maximum number of wrong guesses, game will be over</li>
+                </ul>
+            </div>
+
+            <!-- <div class="start">
+                <a href="#gameTime" aria-label="Play"><i aria-hidden="true" class="far fa-play-circle"></i></a>
+            </div> -->
+
+            <div class="play">
+                <button class="playGame"><i aria-hidden="true" class="far fa-play-circle"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <main id="gameTime">
+        <div class="wrapper">
+            <!-- Guess the word section -->
+            <section class="sectionHint">
+
+                <div class="container">
+                    <h2>Hint</h2>
+                    <!-- <span class="sadFace"><i class="far fa-frown"></i> <i class="far fa-frown"></i> <i class="far fa-frown"></i> <i class="far fa-frown"></i> <i class="far fa-frown"></i></span> -->
+                    
+                    <span class="score"><p></p></span>
+                </div>
+
+                <p class="hint">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                <div class="secretWord"></div>
+            </section>
+    
+            <!-- Alphabet section. Here's where the user will click their guess letters -->
+            <section>
+                <div class="alphaKeys"></div>
+            </section>
+        </div>
+    </main>
+
+    <!-- This is where JQuery is loaded and script.js is called -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="scripts/script.js"></script>
+</body>
+
+</html>

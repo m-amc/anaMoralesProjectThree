@@ -1,0 +1,28 @@
+header {
+    height: 100vh;
+    color: $white;
+    line-height: 2.5rem;
+    letter-spacing: 0.1rem;
+}
+
+.headerContainer h1 {
+    text-align: center;
+    font-size: 3.5rem;
+    font-weight: 700;
+    padding: 3rem 0;
+}
+
+.headerContainer h2 {
+    font-size: 2rem;
+}
+
+.play {
+    text-align: center;
+    font-size: 5rem;
+    
+    button {
+        background: transparent;
+        border: none;
+        color: $white;
+    }
+}
