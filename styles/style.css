@@ -148,48 +148,67 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
 header {
   height: 100vh;
   color: #FFFAFA;
-  line-height: 2.5rem;
+  line-height: 2.3rem;
   letter-spacing: 0.1rem; }
 
 .headerContainer h1 {
   text-align: center;
-  font-size: 3.5rem;
+  font-size: 4rem;
   font-weight: 700;
   padding: 3rem 0; }
+  .headerContainer h1 span {
+    display: block; }
 
 .headerContainer h2 {
   font-size: 2rem; }
 
 .play {
   text-align: center;
-  font-size: 5rem; }
-  .play button {
-    background: transparent;
-    border: none;
-    color: #FFFAFA; }
+  font-size: 7rem; }
+
+.playNow {
+  background: transparent;
+  border: none;
+  color: #AFDFF2; }
+
+.playClicked {
+  display: none; }
 
 main {
   height: 100vh;
   background-color: #AFDFF2;
   line-height: 2.3rem; }
+  main .sectionHint {
+    height: 40vh; }
+  main .sectionAlpha {
+    height: 60vh; }
 
 .sectionHint .container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  padding-top: 2rem; }
-  .sectionHint .container h2, .sectionHint .container span {
-    width: 50%;
-    border: 1px solid red; }
-  .sectionHint .container span {
-    font-size: 2rem;
-    text-align: center; }
+  padding-top: 1rem; }
+  .sectionHint .container .result {
+    width: 60%;
+    font-size: 3rem;
+    font-weight: 700; }
+  .sectionHint .container .replay {
+    width: 25%;
+    background: transparent;
+    border: none;
+    color: #004763;
+    font-size: 3.5rem; }
 
-.sectionHint p {
-  margin: 1rem 0; }
+p.hint {
+  padding: 0.3rem;
+  text-align: center;
+  border-radius: 5px; }
 
 .secretWord {
   padding-top: 5%;
@@ -198,16 +217,20 @@ main {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
-  flex-wrap: wrap; }
+  flex-wrap: wrap;
+  -webkit-box-flex: 1;
+  -ms-flex: 1 auto;
+  flex: 1 auto; }
 
 .secretLetter {
   display: inline-block;
-  width: 4rem;
-  height: 4rem;
+  width: 4.5rem;
+  height: 4.5rem;
   text-align: center;
   border: 1px solid black;
   border-radius: 10%;
-  padding: 0.5rem; }
+  padding: 0.7rem;
+  margin-bottom: 0.3rem; }
 
 .space {
   background-color: gray; }
@@ -218,15 +241,21 @@ main {
   display: flex;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  margin-top: 10%; }
+  -webkit-box-flex: 1;
+  -ms-flex: 1 auto;
+  flex: 1 auto;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  border-top: 2px solid #004763;
+  padding: 1rem; }
   .alphaKeys button {
-    width: 5rem;
-    height: 5rem;
+    width: 4.6rem;
+    height: 4.6rem;
     font-size: 2rem;
-    margin: 0.3rem; }
+    margin: 0.3rem;
+    border: none;
+    border-radius: 5px; }
 
 .correctGuess {
   font-weight: 700;

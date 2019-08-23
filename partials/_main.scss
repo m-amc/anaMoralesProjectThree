@@ -2,26 +2,44 @@ main {
     height: 100vh;
     background-color: $secondaryBackground;
     line-height: 2.3rem;
+
+    .sectionHint {
+        // border: 1px solid red;
+        height: 40vh;
+    }
+    
+    .sectionAlpha {
+        // border: 1px solid red;
+        height: 60vh;
+    }
 }
 
 .sectionHint .container {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    padding-top: 2rem;
-
-    h2, span {
-        width: 50%;
-        border: 1px solid red;
+    padding-top: 1rem;
+    .result {
+        width: 60%;
+        font-size: 3rem;
+        font-weight: 700;
     }
 
-    span {
-        font-size: 2rem;
-        text-align: center;
+    .replay {
+        // border: 1px solid red;
+        width: 25%;
+        background: transparent;
+        border: none;
+        color: $primaryBackground;
+        font-size: 3.5rem;
     }
 }
 
-.sectionHint p {
-    margin: 1rem 0;
+p.hint {
+    // background-color: $accent;
+    padding: 0.3rem;
+    text-align: center;
+    border-radius: 5px;
 }
 
 .secretWord {
@@ -29,16 +47,18 @@ main {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
+    flex: 1 auto;
 }
 
 .secretLetter {
     display: inline-block;
-    width: 4rem;
-    height: 4rem;
+    width: 4.5rem;
+    height: 4.5rem;
     text-align: center;
     border: 1px solid black;
     border-radius: 10%;
-    padding: 0.5rem;
+    padding: 0.7rem;
+    margin-bottom: 0.3rem;
 }
 
 .space {
@@ -48,14 +68,18 @@ main {
 .alphaKeys {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    margin-top: 10%;
+    flex: 1 auto;
+    justify-content: center;
+    border-top: 2px solid $primaryBackground;
+    padding: 1rem;
 
     button {
-        width: 5rem;
-        height: 5rem;
+        width: 4.6rem;
+        height: 4.6rem;
         font-size: 2rem;
         margin: 0.3rem;
+        border: none;
+        border-radius: 5px;
     }
 }
 
