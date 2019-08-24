@@ -21,49 +21,66 @@
 </head>
 
 <body>
-    <header>
+    <a href="#secAlpha" class="skip-link">Skip to the keys.</a>
+    <header role="contentinfo" aria-label="This is the header where you can navigate to the help link">
         <div class="headerContainer wrapper">
             <h1>iGuess</h1>
-            <div>
-                <h2>Instructions</h2>
-                <ul>
+
+            <div class="help">
+                <label for="toggle" aria-label="Help">
+                    <i aria-hidden="true" class="far fa-question-circle"></i>
+                </label>
+            </div>
+            <!-- <div> -->
+                <!-- <h2>Instructions</h2> -->
+                <!-- <ul>
                     <li>A secret word will be randomly generated for you to guess</li>
                     <li>Start guessing letters by choosing a letter below. You have a maximum of <strong>5</strong>
                         wrong guesses </li>
                     <li>If your guess matches any of the letter in the secret word, it will be revealed in the boxes
                     </li>
                     <li>if you reached the maximum number of wrong guesses, game will be over</li>
-                </ul>
-            </div>
-
-            <div class="play">
-                <button class="playNow" aria-label="Play game"><i aria-hidden="true" class="far fa-play-circle"></i></button>
-                <!-- <button class="playNow" aria-label="Play game"><i class="fas fa-play-circle"></i></button> -->
-            </div>
+                </ul> -->
+            <!-- </div> -->
         </div>
     </header>
 
     <main id="gameMain">
+        <div class="mainBorder wrapper">
             <!-- Guess the word section -->
-            <section class="sectionHint wrapper">
+            <section role="contentinfo" aria-label="This describes the hint of the secret word, emojis to represent your remaining chances, and replay button." class="sectionHint">
                 <div class="container">
-                    <!-- <h2>Hint</h2> -->
-                    <!-- <span class="sadFace"><i class="far fa-frown"></i> <i class="far fa-frown"></i> <i class="far fa-frown"></i> <i class="far fa-frown"></i> <i class="far fa-frown"></i></span> -->
-
-                    <div class="result"><p></p></div>
+                    <div class="resultContainer">
+                        <ul class="emoji">
+                            <li><i aria-hidden="true" class="far fa-smile"></i></li>
+                            <li><i aria-hidden="true" class="far fa-smile"></i></li>
+                            <li><i aria-hidden="true" class="far fa-smile"></i></li>
+                            <li><i aria-hidden="true" class="far fa-smile"></i></li>
+                            <li><i aria-hidden="true" class="far fa-smile"></i></li>
+                        </ul>
+                        <div class="result">
+                            <p>HELLO</p>
+                        </div>
+                    </div>
                     <button class="replay" aria-label="Play again"><i aria-hidden="true" class="far fa-play-circle"></i></button>
-
                 </div>
-
-                <p class="hint">Lorem ipsum dolor</p>
-                <div class="secretWord"></div>
+    
+                <div class="hintAndSecret">
+                    <p class="hint">iGuess</p>
+                    <div class="secretWord"></div>
+                </div>
             </section>
-
+    
             <!-- Alphabet section. Here's where the user will click their guess letters -->
-            <section class="sectionAlpha">
-                <div class="alphaKeys wrapper"></div>
+            <section role="contentinfo" aria-label="Pick your guess letter." id="secAlpha" class="sectionAlpha">
+                <div class="alphaKeys"></div>
             </section>
+        </div>
     </main>
+
+    <footer>
+        <p>iGuess by Ana Morales</p>
+    </footer>
 
     <!-- This is where JQuery is loaded and script.js is called -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"

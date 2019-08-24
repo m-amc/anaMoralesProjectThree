@@ -1,5 +1,7 @@
 @import "./_setup";
 @import "./_variablesMixins";
+@import "./_global";
 @import "./_header";
 @import "./_main";
-@import "./_global";
+@import "./responsive";
+@import "./footer";

@@ -4,9 +4,12 @@ const gtwApp = {};
 const $secretWord = $('.secretWord');
 const $alphaKeys = $('.alphaKeys');
 const $gameMain = $('#gameMain');
-const $playNow = $('.playNow');
+// const $playNow = $('.playNow');
 const $playAgain = $('.replay');
-const $result = $('.result p');
+const $result = $('.result');
+const $resultContent = $('.result p');
+const $emoji = $('.emoji');
+const $emojiLi = $('.emoji li');
 
 // Create a secret word array. The array will hold objects (in preparation for the stretch goals)
 gtwApp.secretWordArrayOfObjects = [
@@ -105,11 +108,13 @@ gtwApp.generateGuessBoxes = function(word) {
     // Loop through the array
     wordLetterArray.forEach((arrayElement, index) => {
         // create new div for each letter and display the letter position. index + 1 because user does not understand js index starts with 0.
-        $secretWord.append(`<div class="secretLetter secretLetter${index}">${index + 1}</div>`);
 
         // Add space styling if space exists (gray background)
         if (wordLetterArray[index] === " ") {
+            $secretWord.append(`<div class="secretLetter secretLetter${index}"></div>`);
             $(`.secretLetter${index}`).addClass("space");
+        } else {
+            $secretWord.append(`<div class="secretLetter secretLetter${index}">?</div>`);
         }
     });
 }
@@ -132,12 +137,17 @@ gtwApp.guessLetter = function() {
         // Let's check if the guess is incorrect. If it is, increment the wrongAttemptCounter by 1 and keep track of the count
         if (randomWord.indexOf(guess) < 0) {
             gtwApp.wrongAttemptCounter += 1;
+            $(`.emoji li:nth-child(${gtwApp.wrongAttemptCounter}) i`).attr("class", "fas fa-skull-crossbones").css("color", "#FC4445");;
         }
 
         // If the wrongAttemptCounter reaches the maximum lives.  If it's equal, display "Game Over!" else, loop through the random array word and check if the guess matches any of the letter.
         if (gtwApp.wrongAttemptCounter === gtwApp.lives) {
             console.log("LOSER!");
-            $result.text('Game over!');
+            $result.toggleClass('hideMe');
+            $resultContent.text('Game over!');
+            gtwApp.disableKeyPad();
+            $playAgain.toggleClass('pulseReplay');
+
         } else {
             $(this).attr('disabled', 'disabled');
             
@@ -157,26 +167,25 @@ gtwApp.guessLetter = function() {
             // If the correctGuessCount matches the total count of letters (excluding spaces), display Winner!
             if (gtwApp.correctGuessCounter === randomWordLetterCount) {
                 console.log("----WINNER-----");
-                $result.text('You win!');
+                $result.toggleClass('hideMe');
+                $resultContent.text('You win!');
+                gtwApp.disableKeyPad();
+                $playAgain.toggleClass('pulseReplay');
             }
         }
     });
 }
 
 gtwApp.startGame = function() {
-    $playNow.off('click').on('click', function (e) {
-        $gameMain.show();
-        $(this).toggleClass('playClicked');
-        $(this).attr('disabled', 'disabled');
+    $(this).toggleClass('playClicked');
+    $(this).attr('disabled', 'disabled');
+    gtwApp.renderGuessWord(gtwApp.secretWordArrayOfObjects);
+    gtwApp.renderAlphaKeys();
+    gtwApp.guessLetter();
+}
 
-        $('html, body').animate({
-            scrollTop: $gameMain.offset().top
-        }, 500);
-
-        gtwApp.renderGuessWord(gtwApp.secretWordArrayOfObjects);
-        gtwApp.renderAlphaKeys();
-        gtwApp.guessLetter();
-    });
+gtwApp.disableKeyPad = () => {
+    $('.letter').attr('disabled', 'disabled');
 }
 
 // Function to reset counters back to zero
@@ -187,11 +196,27 @@ gtwApp.resetCounters = function() {
     console.log("RESET COUNTERS", gtwApp.wrongAttemptCounter, gtwApp.correctGuessCounter);
 }
 
+gtwApp.resetEmoji = () => {
+    for (let i = 1; i <= gtwApp.lives; i++) {
+        $(`.emoji li:nth-child(${i}) i`).attr("class", "far fa-smile").css("color", "lightGreen");
+    }
+}
+
 // Function to reset the game
 gtwApp.resetGame = function() {
     $playAgain.off('click').on('click', function() {
+        $(this).removeClass('pulseReplay');
+
+        // Reset the result text
+        if (gtwApp.wrongAttemptCounter > 0 || gtwApp.correctGuessCounter > 0) {
+            // $result.toggleClass('hideMe');
+            $result.addClass('hideMe');
+            $resultContent.text('');
+        }
+
         // Reset all counters
         gtwApp.resetCounters();
+        gtwApp.resetEmoji();
         
         // Remove disabled attribute of the alpha keys
         $('.letter').removeAttr('disabled');
@@ -207,9 +232,9 @@ gtwApp.resetGame = function() {
 
 // Create gtwApp init function that will call the functions needed for the app
 gtwApp.init = function() {
-    $gameMain.hide();
     gtwApp.startGame();
     gtwApp.resetGame();
+    $result.toggleClass('hideMe');
 }
 
 $(function () {

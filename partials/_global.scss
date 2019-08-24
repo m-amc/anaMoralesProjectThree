@@ -7,7 +7,7 @@ body {
 	// Note: 1.6rem * 10px = 16px;
 	font-size: 1.6rem;
     font-family: $baseFont;
-    background-color: $primaryBackground;
+    background-color: $black;
 }
 
 h1, h2, p {
@@ -22,10 +22,14 @@ img {
 .skip-link {
 	position: absolute;
 	left: -1000px;
-	top: 5px;
+	top: 0;
 	z-index: 999;
-	background: white;
-	color: black;
+	background: $darkerAccent;
+	color: $white;
+	text-decoration: none;
+	padding: 2rem;
+	text-transform: uppercase;
+	letter-spacing: 0.1rem;
 }
 
 .skip-link:focus {

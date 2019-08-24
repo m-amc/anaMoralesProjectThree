@@ -1,15 +1,27 @@
 header {
-    height: 100vh;
     color: $white;
     line-height: 2.3rem;
     letter-spacing: 0.1rem;
+    height: 5rem;
+}
+
+.headerContainer {
+    display: flex;
+    justify-content: space-between;
+
+    .help {
+        font-size: 2rem;
+        display: flex;
+        align-items: center;
+        border: 1px solid red;
+    }
 }
 
 .headerContainer h1 {
-    text-align: center;
-    font-size: 4rem;
+    font-size: 2.5rem;
     font-weight: 700;
-    padding: 3rem 0;
+    padding: 1rem 0;
+    color: $accent;
 
     span {
         display: block;
@@ -18,21 +30,4 @@ header {
 
 .headerContainer h2 {
     font-size: 2rem;
-}
-
-.play {
-    text-align: center;
-    font-size: 7rem;
-}
-
-.playNow {
-    background: transparent;
-    border: none;
-    // color: $white;
-    color: $secondaryBackground;
-}
-
-.playClicked {
-    // color: gray;
-    display: none;
 }

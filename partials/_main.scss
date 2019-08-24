@@ -1,68 +1,78 @@
 main {
-    height: 100vh;
-    background-color: $secondaryBackground;
-    line-height: 2.3rem;
+    height: calc(100vh - 8rem);
+}
 
-    .sectionHint {
-        // border: 1px solid red;
-        height: 40vh;
-    }
-    
-    .sectionAlpha {
-        // border: 1px solid red;
-        height: 60vh;
-    }
+.sectionHint {
+    height: 30vh;
+    border: 1px solid white;
 }
 
 .sectionHint .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-top: 1rem;
-    .result {
-        width: 60%;
+    padding-top: 0.2rem;
+
+    .resultContainer {
+        width: 70%;
         font-size: 3rem;
         font-weight: 700;
     }
 
-    .replay {
-        // border: 1px solid red;
-        width: 25%;
-        background: transparent;
-        border: none;
-        color: $primaryBackground;
-        font-size: 3.5rem;
+    button {
+        border: 1px solid transparent;
+        border-radius: 50%;
+    }
+
+    .result {
+        background: rgba(11,12,16, 0.8);
+        text-align: center;
+        position: absolute;
+        top: 20%;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        padding: 5rem;
+        border: 1px solid transparent;
+        border-radius: 50%;
+
+        p {
+            font-size: 3rem;
+            color: $white;
+            text-shadow: 1px 1px 2px $darkerAccent;
+            letter-spacing: 0.15rem;
+        }
     }
 }
 
 p.hint {
-    // background-color: $accent;
     padding: 0.3rem;
     text-align: center;
+    color: darken($white, 5%);
+    border: 1px solid $gray;
     border-radius: 5px;
+    box-shadow: 1px 1px 5px $gray;
+    letter-spacing: 0.1rem;
+
 }
 
 .secretWord {
-    padding-top: 5%;
+    padding: 5% 0;
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     flex: 1 auto;
+    justify-content: space-between;
 }
 
 .secretLetter {
-    display: inline-block;
-    width: 4.5rem;
-    height: 4.5rem;
     text-align: center;
-    border: 1px solid black;
+    border: 2px solid $darkerAccent;
     border-radius: 10%;
-    padding: 0.7rem;
+    padding: 0.3rem 0.7rem;
     margin-bottom: 0.3rem;
-}
-
-.space {
-    background-color: gray;
+    // background: $gray;
+    color: $white;
 }
 
 .alphaKeys {
@@ -70,21 +80,66 @@ p.hint {
     flex-wrap: wrap;
     flex: 1 auto;
     justify-content: center;
-    border-top: 2px solid $primaryBackground;
-    padding: 1rem;
 
     button {
         width: 4.6rem;
         height: 4.6rem;
         font-size: 2rem;
         margin: 0.3rem;
-        border: none;
-        border-radius: 5px;
+        border: 2px solid $darkerAccent;
+        border-radius: 15px;
+
+        &:focus {
+            background: $accent;
+        }
     }
 }
 
 .correctGuess {
     font-weight: 700;
-    font-size: 2.5rem;
-    background-color: $white;
+    font-size: 2rem;
+    // background-color: $white;
+}
+
+.replay {
+    width: 25%;
+    background: transparent;
+    color: $accent;
+    font-size: 3.5rem;
+}
+
+.emoji {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    color: lightgreen;
+
+    margin: 0;
+}
+
+.emojiSkull {
+    color: $lose;
+}
+
+.space {
+    background-color: darken($gray, 20%);
+}
+
+.hideMe {
+    visibility: hidden;
+}
+
+.pulseReplay {
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0px rgba(102, 252, 241, 0.3);
+    }
+
+    100% {
+        box-shadow: 0 0 0 35px rgba(102, 252, 241, 0);
+    }
 }
