@@ -208,10 +208,12 @@ header {
 .headerContainer h1 {
   font-size: 2.5rem;
   font-weight: 700;
-  padding: 1rem 0;
   color: #66FCF1; }
   .headerContainer h1 span {
-    display: block; }
+    font-size: 1rem;
+    display: block;
+    color: #C5C6C7;
+    line-height: 2rem; }
 
 .headerContainer h2 {
   font-size: 2rem; }
@@ -314,7 +316,8 @@ p.hint {
     font-size: 2rem;
     margin: 0.3rem;
     border: 2px solid #45A29E;
-    border-radius: 15px; }
+    border-radius: 15px;
+    background: #FFFAFA; }
     .alphaKeys button:focus {
       background: #66FCF1; }
 
@@ -400,16 +403,6 @@ aside ul {
 .checkToggle:checked + aside {
   display: block; }
 
-footer {
-  background-color: #0B0C10;
-  color: #C5C6C7;
-  text-align: center;
-  height: 3rem; }
-  footer p {
-    padding: 0.3rem;
-    margin: 0;
-    letter-spacing: 0.1rem; }
-
 @media (min-width: 360px) {
   main {
     padding-top: 5rem; }
@@ -446,7 +439,10 @@ footer {
   .headerContainer h1 {
     font-size: 5rem;
     text-align: center;
-    padding: 3rem 0; }
+    padding: 2rem 0; }
+    .headerContainer h1 span {
+      font-size: 1.3rem;
+      line-height: 4rem; }
   .headerContainer label {
     font-size: 3.5rem; }
   .sectionHint {
@@ -482,7 +478,10 @@ footer {
   .sectionHint {
     height: 40vh; }
   .alphaKeys button {
-    margin: 1rem; } }
+    margin: 1rem; }
+  .headerContainer h1 span {
+    font-size: 1.5rem;
+    line-height: 4rem; } }
 
 @media (min-width: 1030px) and (min-height: 525px) {
   .sectionHint {

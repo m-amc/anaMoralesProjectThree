@@ -55,7 +55,12 @@
     .headerContainer h1 {
         font-size: 5rem;
         text-align: center;
-        padding: 3rem 0;
+        padding: 2rem 0;
+
+        span {
+            font-size: 1.3rem;
+            line-height: 4rem;
+        }
     }
 
     .headerContainer label {
@@ -116,6 +121,11 @@
 
     .alphaKeys button {
         margin: 1rem;
+    }
+
+    .headerContainer h1 span {
+        font-size: 1.5rem;
+        line-height: 4rem;
     }
 }
 

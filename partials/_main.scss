@@ -92,6 +92,7 @@ p.hint {
         margin: 0.3rem;
         border: 2px solid $darkerAccent;
         border-radius: 15px;
+        background: $white;
 
         &:focus {
             background: $accent;
