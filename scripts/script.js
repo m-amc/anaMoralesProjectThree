@@ -146,7 +146,7 @@ gtwApp.guessLetter = () => {
             $resultContent.text('Game over!');
             gtwApp.disableKeyPad();
             $playAgain.toggleClass('pulseReplay');
-
+            $playAgain.focus();
         } else {
             $(this).attr('disabled', 'disabled');
             
@@ -170,6 +170,7 @@ gtwApp.guessLetter = () => {
                 $resultContent.text('You win!');
                 gtwApp.disableKeyPad();
                 $playAgain.toggleClass('pulseReplay');
+                $playAgain.focus();
             }
         }
     });
@@ -231,10 +232,43 @@ gtwApp.resetGame = () => {
     });
 }
 
+// Function to decode keypresses (using keyup). only allow letters!
+gtwApp.decodeKey = () => {
+    // Call guessLetter() to start listening.  Click event will be triggered when a key is pressed
+    gtwApp.guessLetter();
+
+    $('body').on('keyup', function(e) {
+        let letterTyped = String.fromCharCode(e.which).toUpperCase();
+        let letterClass = `.letter${letterTyped}`;
+        
+        // IF the user presses the tab key, do not continue. user should use the tab key moving forward to navigate to letters
+        if (e.keyCode === 9) {
+            return;
+        }
+
+        // Check if the pressed key is within the allowable characters, preventDefault if otherwise.
+        if(("abcdefghijklmnopqrstuvwxyz").indexOf(String.fromCharCode(e.keyCode).toLowerCase())===-1){
+            e.preventDefault();
+        } else {
+            // Check if the element already has the disabled attribute.  We should not press the letter again.
+            if ($(letterClass).attr('disabled') === undefined) {
+                $(letterClass).trigger('click');
+            }           
+        } 
+    });
+}
+
 // Create gtwApp init function that will call the functions needed for the app
 gtwApp.init = function() {
+    // Start the game
     gtwApp.startGame();
+
+    // Listen if user resets the game
     gtwApp.resetGame();
+
+    // Listen if user uses keyboard
+    gtwApp.decodeKey();
+
     $result.toggleClass('hideMe');
 }
 
