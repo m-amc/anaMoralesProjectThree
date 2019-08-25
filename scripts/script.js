@@ -4,7 +4,6 @@ const gtwApp = {};
 const $secretWord = $('.secretWord');
 const $alphaKeys = $('.alphaKeys');
 const $gameMain = $('#gameMain');
-// const $playNow = $('.playNow');
 const $playAgain = $('.replay');
 const $result = $('.result');
 const $resultContent = $('.result p');
@@ -54,27 +53,27 @@ gtwApp.wrongAttemptCounter = 0;
 gtwApp.correctGuessCounter = 0;
 
 // Function to get a random index from the secretWordArrayOfObjects array
-gtwApp.randomIndex = function() {
+gtwApp.randomIndex = () => {
     return Math.floor(Math.random() * gtwApp.secretWordArrayOfObjects.length)
 }
 
 // Function to get a word from the array based on the random index
-gtwApp.getRandomWord = function(arr, index) {
+gtwApp.getRandomWord = (arr, index) => {
     return arr[index].word.toLowerCase();
 }
 
 // Get the word hint from the array based on the random index
-gtwApp.getWordHint = function(arr, index) {
+gtwApp.getWordHint = (arr, index) => {
     return arr[index].hint;
 }
 
 // Function that will display the hint in the page
-gtwApp.displayHint = function(str) {
+gtwApp.displayHint = (str) => {
     $('.hint').text(`${str}`);
 }
 
 // Render the Letter keys
-gtwApp.renderAlphaKeys = function() {
+gtwApp.renderAlphaKeys = () => {
     const alphabetArray = "abcdefghijklmnopqrstuvwxyz".toUpperCase().split('');
 
     alphabetArray.forEach((arrayElement, index) => {
@@ -83,7 +82,7 @@ gtwApp.renderAlphaKeys = function() {
 }
 
 // This function will render the secret word in the UI
-gtwApp.renderGuessWord = function(arr) {
+gtwApp.renderGuessWord = (arr) => {
     // Get the random index
     const randomIndex = gtwApp.randomIndex(arr);
     console.log('RANDOM INDEX', randomIndex);
@@ -102,7 +101,7 @@ gtwApp.renderGuessWord = function(arr) {
 }
 
 // Function to generate secret word boxes
-gtwApp.generateGuessBoxes = function(word) {
+gtwApp.generateGuessBoxes = (word) => {
     const wordLetterArray = word.split('');
 
     // Loop through the array
@@ -120,7 +119,7 @@ gtwApp.generateGuessBoxes = function(word) {
 }
 
 // Listen to button click event
-gtwApp.guessLetter = function() {
+gtwApp.guessLetter = () => {
     let randomWord = gtwApp.randomWord;
     let randomWordLetterCount = randomWord.replace(/ /, '').length;
 
@@ -203,13 +202,13 @@ gtwApp.resetEmoji = () => {
 }
 
 // Function to reset the game
-gtwApp.resetGame = function() {
+gtwApp.resetGame = () => {
     $playAgain.off('click').on('click', function() {
+        // Remove the pulseReplay css
         $(this).removeClass('pulseReplay');
 
         // Reset the result text
         if (gtwApp.wrongAttemptCounter > 0 || gtwApp.correctGuessCounter > 0) {
-            // $result.toggleClass('hideMe');
             $result.addClass('hideMe');
             $resultContent.text('');
         }
@@ -224,8 +223,10 @@ gtwApp.resetGame = function() {
         // Remove generated secret word elements
         $('.secretLetter').remove();
         
+        // Render the guess word in the UI
         gtwApp.renderGuessWord(gtwApp.secretWordArrayOfObjects);
 
+        // Start listening on user's guess
         gtwApp.guessLetter();
     });
 }

@@ -184,7 +184,8 @@ header {
   color: #FFFAFA;
   line-height: 2.3rem;
   letter-spacing: 0.1rem;
-  height: 5rem; }
+  height: 5rem;
+  padding-top: 0.3rem; }
 
 .headerContainer {
   display: -webkit-box;
@@ -194,14 +195,15 @@ header {
   -ms-flex-pack: justify;
   justify-content: space-between; }
   .headerContainer .help {
-    font-size: 2rem;
+    font-size: 2.3rem;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-align: center;
     -ms-flex-align: center;
-    align-items: center;
-    border: 1px solid red; }
+    align-items: center; }
+    .headerContainer .help:hover {
+      color: #66FCF1; }
 
 .headerContainer h1 {
   font-size: 2.5rem;
@@ -217,9 +219,14 @@ header {
 main {
   height: calc(100vh - 8rem); }
 
+.mainBorder {
+  border-radius: 5px;
+  -webkit-box-shadow: 0 0 0.5rem #C5C6C7;
+  box-shadow: 0 0 0.5rem #C5C6C7; }
+
 .sectionHint {
   height: 30vh;
-  border: 1px solid white; }
+  padding: 0 0.5rem; }
 
 .sectionHint .container {
   display: -webkit-box;
@@ -251,7 +258,7 @@ main {
     border: 1px solid transparent;
     border-radius: 50%; }
     .sectionHint .container .result p {
-      font-size: 3rem;
+      font-size: 3.5rem;
       color: #FFFAFA;
       text-shadow: 1px 1px 2px #45A29E;
       letter-spacing: 0.15rem; }
@@ -262,8 +269,8 @@ p.hint {
   color: #ffe1e1;
   border: 1px solid #C5C6C7;
   border-radius: 5px;
-  -webkit-box-shadow: 1px 1px 5px #C5C6C7;
-  box-shadow: 1px 1px 5px #C5C6C7;
+  -webkit-box-shadow: 1px 1px 2px #C5C6C7;
+  box-shadow: 1px 1px 2px #C5C6C7;
   letter-spacing: 0.1rem; }
 
 .secretWord {
@@ -318,8 +325,10 @@ p.hint {
 .replay {
   width: 25%;
   background: transparent;
-  color: #66FCF1;
+  color: #FFFAFA;
   font-size: 3.5rem; }
+  .replay:hover {
+    color: #66FCF1; }
 
 .emoji {
   list-style: none;
@@ -362,20 +371,65 @@ p.hint {
     -webkit-box-shadow: 0 0 0 35px rgba(102, 252, 241, 0);
     box-shadow: 0 0 0 35px rgba(102, 252, 241, 0); } }
 
+aside {
+  display: none;
+  background-color: #0B0C10;
+  color: #C5C6C7;
+  position: absolute;
+  top: 5rem;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  font-size: 2rem;
+  line-height: 2.5rem; }
+  aside div {
+    padding: 1rem;
+    border-radius: 5px;
+    border: 1px solid white; }
+
+aside h2 {
+  text-align: center; }
+
+aside ul {
+  padding: 1rem;
+  list-style-position: inside; }
+
+.checkToggle {
+  display: none; }
+
+.checkToggle:checked + aside {
+  display: block; }
+
+footer {
+  background-color: #0B0C10;
+  color: #C5C6C7;
+  text-align: center;
+  height: 3rem; }
+  footer p {
+    padding: 0.3rem;
+    margin: 0;
+    letter-spacing: 0.1rem; }
+
+@media (min-width: 360px) {
+  main {
+    padding-top: 5rem; }
+  aside {
+    line-height: 3rem; } }
+
 @media (min-width: 375px) {
+  main {
+    padding-top: 0; }
   .mainBorder {
     padding-top: 1rem; }
   .hintAndSecret {
     padding-top: 5%; }
   .sectionAlpha {
     padding-top: 1%; }
-  .alphaKeys {
-    padding: 1rem; }
-    .alphaKeys button {
-      width: 5rem;
-      height: 5rem;
-      font-size: 2rem;
-      margin: 0.5rem; } }
+  .alphaKeys button {
+    width: 5rem;
+    height: 5rem;
+    font-size: 2rem;
+    margin: 0.5rem; } }
 
 @media (min-width: 600px) {
   main {
@@ -387,6 +441,8 @@ p.hint {
     padding: 1rem; }
   header {
     height: 10rem; }
+  aside {
+    top: 10rem; }
   .headerContainer h1 {
     font-size: 5rem;
     text-align: center;
@@ -422,15 +478,28 @@ p.hint {
   .replay {
     top: 30%; } }
 
-@media (min-width: 768px) {
-  .wrapper {
-    width: 70%; } }
-
 @media (min-width: 1024px) {
-  main {
-    padding-top: 0; }
   .sectionHint {
-    height: 45vh; } }
+    height: 40vh; }
+  .alphaKeys button {
+    margin: 1rem; } }
+
+@media (min-width: 1034px) and (min-height: 525px) {
+  .sectionHint {
+    height: 35vh; }
+    .sectionHint p {
+      font-size: 2rem;
+      padding: 0.5rem; }
+  .hintAndSecret {
+    padding-top: 2%; }
+  .sectionAlpha {
+    padding-top: 3%; }
+  .alphaKeys button {
+    width: 5.5rem;
+    height: 5.5rem;
+    font-size: 2rem;
+    margin: 0.5rem;
+    margin-bottom: 1rem; } }
 
 @media (min-width: 1280px) {
   .mainBorder {
@@ -441,17 +510,3 @@ p.hint {
     font-size: 3rem; }
   .alphaKeys button {
     margin: 0.7rem; } }
-
-@media (min-height: 812px) {
-  main {
-    padding-top: 3rem; } }
-
-footer {
-  background-color: #0B0C10;
-  color: #C5C6C7;
-  text-align: center;
-  height: 3rem; }
-  footer p {
-    padding: 0.3rem;
-    margin: 0;
-    letter-spacing: 0.1rem; }

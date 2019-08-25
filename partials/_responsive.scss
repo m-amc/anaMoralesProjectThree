@@ -1,4 +1,18 @@
+@media (min-width: 360px) {
+    main {
+        padding-top: 5rem;
+    }
+
+    aside {
+        line-height: 3rem;
+    }
+}
+
 @media (min-width: 375px) {
+    main {
+        padding-top: 0;
+    }
+
     .mainBorder {
         padding-top: 1rem;
     }
@@ -11,25 +25,16 @@
         padding-top: 1%;
     }
 
-    .alphaKeys {
-        padding: 1rem;
-    
-        button {
-            width: 5rem;
-            height: 5rem;
-            font-size: 2rem;
-            margin: 0.5rem;
-        }
+    .alphaKeys button {    
+        width: 5rem;
+        height: 5rem;
+        font-size: 2rem;
+        margin: 0.5rem;
     }
 }
 
 @media (min-width: 600px) {
-    .wrapper {
-        // width: 70%;
-    }
-
     main {
-        // header 10rem + footer 3rem
         height: calc(100vh - 13rem);
     }
 
@@ -41,6 +46,10 @@
 
     header {
         height: 10rem;
+    }
+
+    aside {
+        top: 10rem;
     }
 
     .headerContainer h1 {
@@ -100,27 +109,42 @@
     }
 }
 
-@media (min-width: 768px) {
-    .wrapper {
-        width: 70%;
-    }
-}
-
-@media (min-width: 960px) {
-    main {
-        // padding-top: 0;
-    }
-}
-
 @media (min-width: 1024px) {
-    main {
-        padding-top: 0;
+    .sectionHint {
+        height: 40vh;
     }
 
-    .sectionHint {
-        height: 45vh;
+    .alphaKeys button {
+        margin: 1rem;
     }
 }
+
+@media (min-width: 1034px) and (min-height: 525px) {
+    .sectionHint {
+        height: 35vh;
+
+        p {
+            font-size: 2rem;
+            padding: 0.5rem;
+        }
+    }
+
+    .hintAndSecret {
+        padding-top: 2%;
+    }
+
+    .sectionAlpha {
+        padding-top: 3%;
+    }
+
+    .alphaKeys button {    
+        width: 5.5rem;
+        height: 5.5rem;
+        font-size: 2rem;
+        margin: 0.5rem;
+        margin-bottom: 1rem;
+    }
+} 
 
 @media (min-width: 1280px) {
     .mainBorder {
@@ -134,11 +158,5 @@
 
     .alphaKeys button {    
         margin: 0.7rem;
-    }
-}
-
-@media (min-height: 812px) {
-    main {
-        padding-top: 3rem;
     }
 }

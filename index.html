@@ -26,22 +26,11 @@
         <div class="headerContainer wrapper">
             <h1>iGuess</h1>
 
-            <div class="help">
+            <div role="button" tabindex=0 class="help">
                 <label for="toggle" aria-label="Help">
                     <i aria-hidden="true" class="far fa-question-circle"></i>
                 </label>
             </div>
-            <!-- <div> -->
-                <!-- <h2>Instructions</h2> -->
-                <!-- <ul>
-                    <li>A secret word will be randomly generated for you to guess</li>
-                    <li>Start guessing letters by choosing a letter below. You have a maximum of <strong>5</strong>
-                        wrong guesses </li>
-                    <li>If your guess matches any of the letter in the secret word, it will be revealed in the boxes
-                    </li>
-                    <li>if you reached the maximum number of wrong guesses, game will be over</li>
-                </ul> -->
-            <!-- </div> -->
         </div>
     </header>
 
@@ -77,6 +66,21 @@
             </section>
         </div>
     </main>
+
+    <input type="checkbox" id="toggle" name="toggle" class="checkToggle">
+    <aside>
+        <div class="wrapper">
+            <h2>Mechanics</h2>
+            <ul>
+                <li>A secret word will be randomly generated for you to guess</li>
+                <li>Start guessing letters by choosing a letter below. You have a maximum of <strong>5</strong>
+                    wrong guesses </li>
+                <li>If your guess matches any of the letter in the secret word, it will be revealed in the boxes
+                </li>
+                <li>if you reached the maximum number of wrong guesses, game will be over</li>
+            </ul>
+        </div>
+    </aside>
 
     <footer>
         <p>iGuess by Ana Morales</p>

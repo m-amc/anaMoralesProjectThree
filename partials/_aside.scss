@@ -1,0 +1,39 @@
+aside {
+    display: none;
+    background-color: $black;
+    color: $gray;
+    position: absolute;
+    top: 5rem;
+    left: 0;
+    bottom: 0;
+    right: 0;
+
+    font-size: 2rem;
+    line-height: 2.5rem;
+
+    div {
+        padding: 1rem;
+        border-radius: 5px;
+        border: 1px solid white;
+    }
+}
+
+aside h2 {
+    text-align: center;
+    
+}
+
+aside ul {
+    padding: 1rem;
+    list-style-position: inside;
+}
+
+.checkToggle {
+    display: none;
+}
+
+.checkToggle:checked {
+    + aside {
+        display: block;
+    }
+}
