@@ -10,7 +10,7 @@
 
 @media (min-width: 375px) {
     main {
-        padding-top: 0;
+        padding-top: 1.5rem;
     }
 
     .mainBorder {
@@ -35,7 +35,7 @@
 
 @media (min-width: 600px) {
     main {
-        height: calc(100vh - 13rem);
+        height: calc(100vh - 10rem);
     }
 
     .mainBorder {
@@ -170,5 +170,11 @@
 
     .alphaKeys button {    
         margin: 0.7rem;
+    }
+}
+
+@media (min-width: 1440px) {
+    main {
+        padding-top: 5rem;
     }
 }

@@ -218,7 +218,7 @@ header {
   font-size: 2rem; }
 
 main {
-  height: calc(100vh - 8rem); }
+  height: calc(100vh - 5rem); }
 
 .mainBorder {
   border-radius: 5px;
@@ -410,7 +410,7 @@ aside ul {
 
 @media (min-width: 375px) {
   main {
-    padding-top: 0; }
+    padding-top: 1.5rem; }
   .mainBorder {
     padding-top: 1rem; }
   .hintAndSecret {
@@ -425,7 +425,7 @@ aside ul {
 
 @media (min-width: 600px) {
   main {
-    height: calc(100vh - 13rem); }
+    height: calc(100vh - 10rem); }
   .mainBorder {
     -webkit-box-shadow: 0.5rem 0.5rem 1.5rem #45A29E;
     box-shadow: 0.5rem 0.5rem 1.5rem #45A29E;
@@ -509,3 +509,7 @@ aside ul {
     font-size: 3rem; }
   .alphaKeys button {
     margin: 0.7rem; } }
+
+@media (min-width: 1440px) {
+  main {
+    padding-top: 5rem; } }
