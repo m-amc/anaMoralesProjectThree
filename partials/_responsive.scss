@@ -1,6 +1,10 @@
 @media (min-width: 360px) {
+    header {
+        padding: 1rem 0;
+    }
+
     main {
-        padding-top: 5rem;
+        padding-top: 3rem;
     }
 
     aside {
@@ -46,7 +50,6 @@
 
     header {
         height: 10rem;
-        padding: 1rem 0;
         line-height: 3rem;
 
     }

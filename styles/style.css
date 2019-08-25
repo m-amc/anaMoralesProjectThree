@@ -223,7 +223,8 @@ main {
 .mainBorder {
   border-radius: 5px;
   -webkit-box-shadow: 0 0 0.5rem #C5C6C7;
-  box-shadow: 0 0 0.5rem #C5C6C7; }
+  box-shadow: 0 0 0.5rem #C5C6C7;
+  padding-bottom: 0.5rem; }
 
 .sectionHint {
   height: 30vh;
@@ -403,8 +404,10 @@ aside ul {
   display: block; }
 
 @media (min-width: 360px) {
+  header {
+    padding: 1rem 0; }
   main {
-    padding-top: 5rem; }
+    padding-top: 3rem; }
   aside {
     line-height: 3rem; } }
 
@@ -433,7 +436,6 @@ aside ul {
     padding: 1rem; }
   header {
     height: 10rem;
-    padding: 1rem 0;
     line-height: 3rem; }
   aside {
     top: 10rem; }
