@@ -258,12 +258,16 @@ main {
     margin: 0 auto;
     padding: 5rem;
     border: 1px solid transparent;
-    border-radius: 50%; }
-    .sectionHint .container .result p {
+    border-radius: 50%;
+    letter-spacing: 0.15rem; }
+    .sectionHint .container .result p.winLose {
       font-size: 3.5rem;
       color: #FFFAFA;
-      text-shadow: 1px 1px 2px #45A29E;
-      letter-spacing: 0.15rem; }
+      text-shadow: 1px 1px 2px #45A29E; }
+    .sectionHint .container .result p.answer {
+      font-size: 1.6rem;
+      color: #C5C6C7;
+      text-transform: uppercase; }
 
 p.hint {
   padding: 0.3rem;

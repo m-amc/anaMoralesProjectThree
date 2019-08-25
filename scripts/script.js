@@ -6,7 +6,8 @@ const $alphaKeys = $('.alphaKeys');
 const $gameMain = $('#gameMain');
 const $playAgain = $('.replay');
 const $result = $('.result');
-const $resultContent = $('.result p');
+const $resultContent = $('.result p.winLose');
+const $answer = $('.result p.answer')
 const $emoji = $('.emoji');
 const $emojiLi = $('.emoji li');
 const $wrongSound = $('#wrongSound');
@@ -18,7 +19,7 @@ const $gameOverSound = $('#gameOverSound');
 gtwApp.secretWordArrayOfObjects = [
     {
         word: "Javascript",
-        hint: "This language is a bit weird"
+        hint: "A scripting language used in web development"
     },
     {
         word: "JQuery",
@@ -47,6 +48,14 @@ gtwApp.secretWordArrayOfObjects = [
     {
         word: "Callback",
         hint: "A function called in a function"
+    },
+    {
+        word: "git diff",
+        hint: "A git command used to see changes made"
+    },
+    {
+        word: "Arrow",
+        hint: "An ES6 syntax for creating a function"
     }
 ]
 
@@ -54,6 +63,15 @@ gtwApp.secretWordArrayOfObjects = [
 gtwApp.lives = 5;
 gtwApp.wrongAttemptCounter = 0;
 gtwApp.correctGuessCounter = 0;
+
+// Render the Letter keys
+gtwApp.renderAlphaKeys = () => {
+    const alphabetArray = "abcdefghijklmnopqrstuvwxyz".toUpperCase().split('');
+
+    alphabetArray.forEach((arrayElement, index) => {
+        $alphaKeys.append(`<button aria-label="Press ${arrayElement}" class="letter letter${arrayElement}">${arrayElement}</button>`);
+    });
+}
 
 // Function to get a random index from the secretWordArrayOfObjects array
 gtwApp.randomIndex = () => {
@@ -73,15 +91,6 @@ gtwApp.getWordHint = (arr, index) => {
 // Function that will display the hint in the page
 gtwApp.displayHint = (str) => {
     $('.hint').text(`${str}`);
-}
-
-// Render the Letter keys
-gtwApp.renderAlphaKeys = () => {
-    const alphabetArray = "abcdefghijklmnopqrstuvwxyz".toUpperCase().split('');
-
-    alphabetArray.forEach((arrayElement, index) => {
-        $alphaKeys.append(`<button aria-label="Press ${arrayElement}" class="letter letter${arrayElement}">${arrayElement}</button>`);
-    });
 }
 
 // This function will render the secret word in the UI
@@ -143,11 +152,14 @@ gtwApp.guessLetter = () => {
         if (gtwApp.wrongAttemptCounter === gtwApp.lives) {
             $result.toggleClass('hideMe');
             $gameOverSound[0].play();
-            $resultContent.text('Game over!');
             gtwApp.disableKeyPad();
+            $resultContent.text('Game over!');
+            $answer.text(gtwApp.randomWord);
             $playAgain.toggleClass('pulseReplay');
             $playAgain.focus();
+
         } else {
+
             $(this).attr('disabled', 'disabled');
             
             // Since we still have lives left, we can loop through the wordLetterArray, check the guess if it matches the array element and if it does, reveal the matching letter in the boxes.
@@ -168,8 +180,10 @@ gtwApp.guessLetter = () => {
             if (gtwApp.correctGuessCounter === randomWordLetterCount) {
                 $result.toggleClass('hideMe');
                 $winSound[0].play();
-                $resultContent.text('You win!');
                 gtwApp.disableKeyPad();
+                $resultContent.text('You win!');
+                $answer.text(gtwApp.randomWord);
+
                 $playAgain.toggleClass('pulseReplay');
                 $playAgain.focus();
             }
@@ -213,6 +227,7 @@ gtwApp.resetGame = () => {
         if (gtwApp.wrongAttemptCounter > 0 || gtwApp.correctGuessCounter > 0) {
             $result.addClass('hideMe');
             $resultContent.text('');
+            $answer.text('');
         }
 
         // Reset all counters
