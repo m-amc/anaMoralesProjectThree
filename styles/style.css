@@ -385,7 +385,7 @@ aside {
   aside div {
     padding: 1rem;
     border-radius: 5px;
-    border: 1px solid white; }
+    border: 1px solid #FFFAFA; }
 
 aside h2 {
   text-align: center; }
@@ -437,7 +437,7 @@ footer {
   .mainBorder {
     -webkit-box-shadow: 0.5rem 0.5rem 1.5rem #45A29E;
     box-shadow: 0.5rem 0.5rem 1.5rem #45A29E;
-    border-radius: 5%;
+    border-radius: 2%;
     padding: 1rem; }
   header {
     height: 10rem; }
@@ -484,7 +484,7 @@ footer {
   .alphaKeys button {
     margin: 1rem; } }
 
-@media (min-width: 1034px) and (min-height: 525px) {
+@media (min-width: 1030px) and (min-height: 525px) {
   .sectionHint {
     height: 35vh; }
     .sectionHint p {

@@ -9,6 +9,10 @@ const $result = $('.result');
 const $resultContent = $('.result p');
 const $emoji = $('.emoji');
 const $emojiLi = $('.emoji li');
+const $wrongSound = $('#wrongSound');
+const $correctSound = $('#correctSound');
+const $winSound = $('#winSound');
+const $gameOverSound = $('#gameOverSound');
 
 // Create a secret word array. The array will hold objects (in preparation for the stretch goals)
 gtwApp.secretWordArrayOfObjects = [
@@ -46,9 +50,8 @@ gtwApp.secretWordArrayOfObjects = [
     }
 ]
 
-// Create lives variable
+// Create lives variable, wrong and correct counters
 gtwApp.lives = 5;
-
 gtwApp.wrongAttemptCounter = 0;
 gtwApp.correctGuessCounter = 0;
 
@@ -85,7 +88,6 @@ gtwApp.renderAlphaKeys = () => {
 gtwApp.renderGuessWord = (arr) => {
     // Get the random index
     const randomIndex = gtwApp.randomIndex(arr);
-    console.log('RANDOM INDEX', randomIndex);
 
     // Get the random word and store this to gtwApp.randomWord
     gtwApp.randomWord = gtwApp.getRandomWord(arr, randomIndex);
@@ -123,26 +125,24 @@ gtwApp.guessLetter = () => {
     let randomWord = gtwApp.randomWord;
     let randomWordLetterCount = randomWord.replace(/ /, '').length;
 
-    console.log("LOG RANDOM WORD" ,randomWord);
-    console.log("=====================================");
-
     $('.letter').off('click').on('click', function () {
         const guess = $(this).text().toLowerCase();
 
         // We can use the gtwApp.randomWord property (randomWord variable) here. Split the word to create an array of letters that we can use to loop through later.
         const wordLetterArray = randomWord.split('');
-        console.log("WORDLETTERARRAY", wordLetterArray);
 
         // Let's check if the guess is incorrect. If it is, increment the wrongAttemptCounter by 1 and keep track of the count
         if (randomWord.indexOf(guess) < 0) {
             gtwApp.wrongAttemptCounter += 1;
             $(`.emoji li:nth-child(${gtwApp.wrongAttemptCounter}) i`).attr("class", "fas fa-skull-crossbones").css("color", "#FC4445");;
+
+            $wrongSound[0].play();
         }
 
         // If the wrongAttemptCounter reaches the maximum lives.  If it's equal, display "Game Over!" else, loop through the random array word and check if the guess matches any of the letter.
         if (gtwApp.wrongAttemptCounter === gtwApp.lives) {
-            console.log("LOSER!");
             $result.toggleClass('hideMe');
+            $gameOverSound[0].play();
             $resultContent.text('Game over!');
             gtwApp.disableKeyPad();
             $playAgain.toggleClass('pulseReplay');
@@ -155,18 +155,19 @@ gtwApp.guessLetter = () => {
                 // We still have to compare guess and letter here since we want to make sure that the letter will be revealed in the correct position.
                 if (guess === letter) {
                     let letterIndex = `.secretLetter${index}`;
-                    console.log("letterIndex", letterIndex);
 
                     $(letterIndex).text(`${letter.toUpperCase()}`).addClass('correctGuess');
 
                     gtwApp.correctGuessCounter += 1; 
+
+                    $correctSound[0].play();
                 }
             });
 
             // If the correctGuessCount matches the total count of letters (excluding spaces), display Winner!
             if (gtwApp.correctGuessCounter === randomWordLetterCount) {
-                console.log("----WINNER-----");
                 $result.toggleClass('hideMe');
+                $winSound[0].play();
                 $resultContent.text('You win!');
                 gtwApp.disableKeyPad();
                 $playAgain.toggleClass('pulseReplay');
@@ -192,8 +193,6 @@ gtwApp.disableKeyPad = () => {
 gtwApp.resetCounters = function() {
     gtwApp.wrongAttemptCounter = 0;
     gtwApp.correctGuessCounter = 0;
-
-    console.log("RESET COUNTERS", gtwApp.wrongAttemptCounter, gtwApp.correctGuessCounter);
 }
 
 gtwApp.resetEmoji = () => {
@@ -207,6 +206,8 @@ gtwApp.resetGame = () => {
     $playAgain.off('click').on('click', function() {
         // Remove the pulseReplay css
         $(this).removeClass('pulseReplay');
+
+        $playAgain.blur();
 
         // Reset the result text
         if (gtwApp.wrongAttemptCounter > 0 || gtwApp.correctGuessCounter > 0) {
