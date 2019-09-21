@@ -1,0 +1,660 @@
+article, aside, details, figcaption, figure, footer, header, hgroup, nav, section, summary {
+  display: block;
+}
+
+audio, canvas, video {
+  display: inline-block;
+}
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+[hidden] {
+  display: none;
+}
+
+html {
+  font-family: sans-serif;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+a:focus {
+  outline: thin dotted;
+}
+
+a:active, a:hover {
+  outline: 0;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+
+b, strong {
+  font-weight: 700;
+}
+
+dfn {
+  font-style: italic;
+}
+
+mark {
+  background: #ff0;
+  color: #000;
+}
+
+code, kbd, pre, samp {
+  font-family: monospace, serif;
+  font-size: 1em;
+}
+
+pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+q {
+  quotes: \201C \201D \2018 \2019;
+}
+
+small {
+  font-size: 80%;
+}
+
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -.5em;
+}
+
+sub {
+  bottom: -.25em;
+}
+
+img {
+  border: 0;
+}
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+fieldset {
+  border: 1px solid silver;
+  margin: 0 2px;
+  padding: .35em .625em .75em;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: 100%;
+  margin: 0;
+}
+
+button, input {
+  line-height: normal;
+}
+
+button, html input[type=button], input[type=reset], input[type=submit] {
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+
+button[disabled], input[disabled] {
+  cursor: default;
+}
+
+input[type=checkbox], input[type=radio] {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0;
+}
+
+input[type=search] {
+  -webkit-appearance: textfield;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
+input[type=search]::-webkit-search-cancel-button, input[type=search]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+textarea {
+  overflow: auto;
+  vertical-align: top;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+body, figure {
+  margin: 0;
+}
+
+legend, button::-moz-focus-inner, input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: '';
+  clear: both;
+  height: 0;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.visuallyHidden:not(:focus):not(:active) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  -webkit-clip-path: inset(100%);
+          clip-path: inset(100%);
+  clip: rect(0 0 0);
+  overflow: hidden;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: "Livvic", sans-serif;
+  background-color: #0B0C10;
+}
+
+h1, h2, p {
+  padding: 0;
+  margin: 0;
+}
+
+img {
+  width: 100%;
+}
+
+.skip-link {
+  position: absolute;
+  left: -1000px;
+  top: 0;
+  z-index: 999;
+  background: #45A29E;
+  color: #FFFAFA;
+  text-decoration: none;
+  padding: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+}
+
+.skip-link:focus {
+  left: 0;
+}
+
+.wrapper {
+  width: 90%;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+header {
+  color: #FFFAFA;
+  line-height: 2rem;
+  letter-spacing: 0.1rem;
+  height: 5rem;
+  padding: 0.5rem 0;
+}
+
+.headerContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.headerContainer .help {
+  font-size: 2.3rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.headerContainer .help:hover {
+  color: #66FCF1;
+}
+
+.headerContainer h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #66FCF1;
+}
+
+.headerContainer h1 span {
+  font-size: 1rem;
+  display: block;
+  color: #C5C6C7;
+}
+
+.headerContainer h2 {
+  font-size: 2rem;
+}
+
+main {
+  height: calc(100vh - 5rem);
+}
+
+.mainBorder {
+  border-radius: 5px;
+  -webkit-box-shadow: 0 0 0.5rem #C5C6C7;
+          box-shadow: 0 0 0.5rem #C5C6C7;
+  padding-bottom: 0.5rem;
+}
+
+.sectionHint {
+  height: 30vh;
+  padding: 0 0.5rem;
+}
+
+.sectionHint .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-top: 0.2rem;
+}
+
+.sectionHint .container .resultContainer {
+  width: 70%;
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.sectionHint .container button {
+  border: 1px solid transparent;
+  border-radius: 50%;
+}
+
+.sectionHint .container .result {
+  background: rgba(11, 12, 16, 0.8);
+  text-align: center;
+  position: absolute;
+  top: 20%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  padding: 5rem;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  letter-spacing: 0.15rem;
+}
+
+.sectionHint .container .result p.winLose {
+  font-size: 3.5rem;
+  color: #FFFAFA;
+  text-shadow: 1px 1px 2px #45A29E;
+}
+
+.sectionHint .container .result p.answer {
+  font-size: 1.6rem;
+  color: #C5C6C7;
+  text-transform: uppercase;
+}
+
+p.hint {
+  padding: 0.3rem;
+  text-align: center;
+  color: #ffe1e1;
+  border: 1px solid #C5C6C7;
+  border-radius: 5px;
+  -webkit-box-shadow: 1px 1px 2px #C5C6C7;
+          box-shadow: 1px 1px 2px #C5C6C7;
+  letter-spacing: 0.1rem;
+}
+
+.secretWord {
+  padding: 5% 0;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 auto;
+          flex: 1 auto;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.secretLetter {
+  text-align: center;
+  border: 2px solid #45A29E;
+  border-radius: 10%;
+  padding: 0.3rem 0.7rem;
+  margin-bottom: 0.3rem;
+  color: #FFFAFA;
+}
+
+.alphaKeys {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 auto;
+          flex: 1 auto;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.alphaKeys button {
+  width: 4.6rem;
+  height: 4.6rem;
+  font-size: 2rem;
+  margin: 0.3rem;
+  border: 2px solid #45A29E;
+  border-radius: 15px;
+  background: #FFFAFA;
+}
+
+.alphaKeys button:focus {
+  background: #66FCF1;
+}
+
+.correctGuess {
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+.replay {
+  width: 25%;
+  background: transparent;
+  color: #FFFAFA;
+  font-size: 3.5rem;
+}
+
+.replay:hover {
+  color: #66FCF1;
+}
+
+.emoji {
+  list-style: none;
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  color: lightgreen;
+  margin: 0;
+}
+
+.emojiSkull {
+  color: #FC4445;
+}
+
+.space {
+  background-color: #919395;
+}
+
+.hideMe {
+  visibility: hidden;
+}
+
+.pulseReplay {
+  -webkit-animation: pulse 1s infinite;
+          animation: pulse 1s infinite;
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-box-shadow: 0 0 0 0px rgba(102, 252, 241, 0.3);
+            box-shadow: 0 0 0 0px rgba(102, 252, 241, 0.3);
+  }
+  100% {
+    -webkit-box-shadow: 0 0 0 35px rgba(102, 252, 241, 0);
+            box-shadow: 0 0 0 35px rgba(102, 252, 241, 0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    -webkit-box-shadow: 0 0 0 0px rgba(102, 252, 241, 0.3);
+            box-shadow: 0 0 0 0px rgba(102, 252, 241, 0.3);
+  }
+  100% {
+    -webkit-box-shadow: 0 0 0 35px rgba(102, 252, 241, 0);
+            box-shadow: 0 0 0 35px rgba(102, 252, 241, 0);
+  }
+}
+
+aside {
+  display: none;
+  background-color: #0B0C10;
+  color: #C5C6C7;
+  position: absolute;
+  top: 5rem;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  font-size: 2rem;
+  line-height: 2.5rem;
+}
+
+aside div {
+  padding: 1rem;
+  border-radius: 5px;
+  border: 1px solid #FFFAFA;
+}
+
+aside h2 {
+  text-align: center;
+}
+
+aside ul {
+  padding: 1rem;
+  list-style-position: inside;
+}
+
+.checkToggle {
+  display: none;
+}
+
+.checkToggle:checked + aside {
+  display: block;
+}
+
+@media (min-width: 360px) {
+  header {
+    padding: 1rem 0;
+  }
+  main {
+    padding-top: 3rem;
+  }
+  aside {
+    line-height: 3rem;
+  }
+}
+
+@media (min-width: 375px) {
+  main {
+    padding-top: 1.5rem;
+  }
+  .mainBorder {
+    padding-top: 1rem;
+  }
+  .hintAndSecret {
+    padding-top: 5%;
+  }
+  .sectionAlpha {
+    padding-top: 1%;
+  }
+  .alphaKeys button {
+    width: 5rem;
+    height: 5rem;
+    font-size: 2rem;
+    margin: 0.5rem;
+  }
+}
+
+@media (min-width: 600px) {
+  main {
+    height: calc(100vh - 10rem);
+  }
+  .mainBorder {
+    -webkit-box-shadow: 0.5rem 0.5rem 1.5rem #45A29E;
+            box-shadow: 0.5rem 0.5rem 1.5rem #45A29E;
+    border-radius: 2%;
+    padding: 1rem;
+  }
+  header {
+    height: 10rem;
+    line-height: 3rem;
+  }
+  aside {
+    top: 10rem;
+  }
+  .headerContainer h1 {
+    font-size: 5rem;
+    text-align: center;
+    padding: 2rem 0;
+  }
+  .headerContainer h1 span {
+    font-size: 1.3rem;
+  }
+  .headerContainer label {
+    font-size: 3.5rem;
+  }
+  .sectionHint {
+    height: 37vh;
+  }
+  .sectionHint p {
+    font-size: 2.5rem;
+    padding: 1rem;
+  }
+  .sectionHint .container .result {
+    top: 27%;
+    left: 23%;
+    right: 23%;
+  }
+  .sectionAlpha {
+    padding-top: 1%;
+    height: 50%;
+  }
+  .emoji,
+  .replay {
+    font-size: 4rem;
+  }
+  .alphaKeys {
+    padding: 1rem;
+  }
+  .alphaKeys button {
+    width: 6rem;
+    height: 6rem;
+    font-size: 2rem;
+    margin: 0.5rem;
+  }
+  .secretLetter {
+    width: 5rem;
+    height: 5rem;
+    padding: 1rem;
+  }
+  .replay {
+    top: 30%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .sectionHint {
+    height: 40vh;
+  }
+  .alphaKeys button {
+    margin: 1rem;
+  }
+  .headerContainer h1 span {
+    font-size: 1.5rem;
+    line-height: 4rem;
+  }
+}
+
+@media (min-width: 1030px) and (min-height: 525px) {
+  .sectionHint {
+    height: 35vh;
+  }
+  .sectionHint p {
+    font-size: 2rem;
+    padding: 0.5rem;
+  }
+  .hintAndSecret {
+    padding-top: 2%;
+  }
+  .sectionAlpha {
+    padding-top: 3%;
+  }
+  .alphaKeys button {
+    width: 5.5rem;
+    height: 5.5rem;
+    font-size: 2rem;
+    margin: 0.5rem;
+    margin-bottom: 1rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .mainBorder {
+    padding: 2rem;
+  }
+  .secretLetter {
+    width: 6rem;
+    height: 6rem;
+    font-size: 3rem;
+  }
+  .alphaKeys button {
+    margin: 0.7rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  main {
+    padding-top: 5rem;
+  }
+}
+/*# sourceMappingURL=style.css.map */

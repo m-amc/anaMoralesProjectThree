@@ -51,7 +51,7 @@ gtwApp.secretWordArrayOfObjects = [
     },
     {
         word: "git diff",
-        hint: "A git command used to see changes made"
+        hint: "A git command used to compare changes"
     },
     {
         word: "Arrow",
@@ -68,7 +68,7 @@ gtwApp.correctGuessCounter = 0;
 gtwApp.renderAlphaKeys = () => {
     const alphabetArray = "abcdefghijklmnopqrstuvwxyz".toUpperCase().split('');
 
-    alphabetArray.forEach((arrayElement, index) => {
+    alphabetArray.forEach((arrayElement) => {
         $alphaKeys.append(`<button aria-label="Press ${arrayElement}" class="letter letter${arrayElement}">${arrayElement}</button>`);
     });
 }
@@ -120,7 +120,7 @@ gtwApp.generateGuessBoxes = (word) => {
         // create new div for each letter and display the letter position. index + 1 because user does not understand js index starts with 0.
 
         // Add space styling if space exists (gray background)
-        if (wordLetterArray[index] === " ") {
+        if (arrayElement === " ") {
             $secretWord.append(`<div class="secretLetter secretLetter${index}"></div>`);
             $(`.secretLetter${index}`).addClass("space");
         } else {
