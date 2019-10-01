@@ -355,7 +355,7 @@ p.hint {
 .space {
   background-color: #919395; }
 
-.hideMe {
+.showResult {
   visibility: hidden; }
 
 .pulseReplay {
