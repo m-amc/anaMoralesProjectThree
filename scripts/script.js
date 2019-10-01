@@ -146,9 +146,9 @@ app.guessLetter = () => {
             app.$wrongSound[0].play();
         }
 
-        // If the wrongAttemptCounter reaches the maximum lives.  If it's equal, display "Game Over!" else, loop through the random array word and check if the guess matches any of the letter.
+        // Check if the wrongAttemptCounter reaches the maximum lives.  If it's equal, display "Game Over!" else, loop through the random array word and check if the guess matches any of the letter.
         if (app.wrongAttemptCounter === app.lives) {
-            app.$result.toggleClass('hideMe');
+            app.$result.toggleClass('showResult');
             app.$gameOverSound[0].play();
             app.disableKeyPad();
             app.$resultContent.text('Game over!');
@@ -176,7 +176,7 @@ app.guessLetter = () => {
 
             // If the correctGuessCount matches the total count of letters (excluding spaces), display Winner!
             if (app.correctGuessCounter === randomWordLetterCount) {
-                app.$result.toggleClass('hideMe');
+                app.$result.toggleClass('showResult');
                 app.$winSound[0].play();
                 app.disableKeyPad();
                 app.$resultContent.text('You win!');
@@ -223,7 +223,7 @@ app.resetGame = () => {
 
         // Reset the result text
         if (app.wrongAttemptCounter > 0 || app.correctGuessCounter > 0) {
-            app.$result.addClass('hideMe');
+            app.$result.addClass('showResult');
             app.$resultContent.text('');
             app.$answer.text('');
         }
@@ -283,7 +283,7 @@ app.init = function() {
     // Listen if user uses keyboard
     app.decodeKey();
 
-    app.$result.toggleClass('hideMe');
+    app.$result.toggleClass('showResult');
 }
 
 $(function () {
