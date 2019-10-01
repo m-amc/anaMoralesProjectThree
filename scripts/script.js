@@ -1,22 +1,20 @@
-// Define the guess the word app object (gtwApp)
-const gtwApp = {};
+// Define the guess the word app object (app)
+const app = {};
 
-const $secretWord = $('.secretWord');
-const $alphaKeys = $('.alphaKeys');
-const $gameMain = $('#gameMain');
-const $playAgain = $('.replay');
-const $result = $('.result');
-const $resultContent = $('.result p.winLose');
-const $answer = $('.result p.answer')
-const $emoji = $('.emoji');
-const $emojiLi = $('.emoji li');
-const $wrongSound = $('#wrongSound');
-const $correctSound = $('#correctSound');
-const $winSound = $('#winSound');
-const $gameOverSound = $('#gameOverSound');
+// Element variables
+app.$secretWord = $('.secretWord');
+app.$alphaKeys = $('.alphaKeys');
+app.$playAgain = $('.replay');
+app.$result = $('.result');
+app.$resultContent = $('.result p.winLose');
+app.$answer = $('.result p.answer')
+app.$wrongSound = $('#wrongSound');
+app.$correctSound = $('#correctSound');
+app.$winSound = $('#winSound');
+app.$gameOverSound = $('#gameOverSound');
 
 // Create a secret word array. The array will hold objects (in preparation for the stretch goals)
-gtwApp.secretWordArrayOfObjects = [
+app.secretWordArrayOfObjects = [
     {
         word: "Javascript",
         hint: "A scripting language used in web development"
@@ -34,8 +32,8 @@ gtwApp.secretWordArrayOfObjects = [
         hint: "Set of attributes used to make web accessible"
     },
     {
-    word: "git push",
-    hint: "Bring your code to the repository"
+        word: "git push",
+        hint: "Bring your code to the repository"
     },
     {
         word: "Cascading",
@@ -60,59 +58,59 @@ gtwApp.secretWordArrayOfObjects = [
 ]
 
 // Create lives variable, wrong and correct counters
-gtwApp.lives = 5;
-gtwApp.wrongAttemptCounter = 0;
-gtwApp.correctGuessCounter = 0;
+app.lives = 5;
+app.wrongAttemptCounter = 0;
+app.correctGuessCounter = 0;
 
 // Render the Letter keys
-gtwApp.renderAlphaKeys = () => {
+app.renderAlphaKeys = () => {
     const alphabetArray = "abcdefghijklmnopqrstuvwxyz".toUpperCase().split('');
 
     alphabetArray.forEach((arrayElement) => {
-        $alphaKeys.append(`<button aria-label="Press ${arrayElement}" class="letter letter${arrayElement}">${arrayElement}</button>`);
+        app.$alphaKeys.append(`<button aria-label="Press ${arrayElement}" class="letter letter${arrayElement}">${arrayElement}</button>`);
     });
 }
 
 // Function to get a random index from the secretWordArrayOfObjects array
-gtwApp.randomIndex = () => {
-    return Math.floor(Math.random() * gtwApp.secretWordArrayOfObjects.length)
+app.randomIndex = () => {
+    return Math.floor(Math.random() * app.secretWordArrayOfObjects.length)
 }
 
 // Function to get a word from the array based on the random index
-gtwApp.getRandomWord = (arr, index) => {
+app.getRandomWord = (arr, index) => {
     return arr[index].word.toLowerCase();
 }
 
 // Get the word hint from the array based on the random index
-gtwApp.getWordHint = (arr, index) => {
+app.getWordHint = (arr, index) => {
     return arr[index].hint;
 }
 
 // Function that will display the hint in the page
-gtwApp.displayHint = (str) => {
+app.displayHint = (str) => {
     $('.hint').text(`${str}`);
 }
 
 // This function will render the secret word in the UI
-gtwApp.renderGuessWord = (arr) => {
+app.renderGuessWord = (arr) => {
     // Get the random index
-    const randomIndex = gtwApp.randomIndex(arr);
+    const randomIndex = app.randomIndex(arr);
 
-    // Get the random word and store this to gtwApp.randomWord
-    gtwApp.randomWord = gtwApp.getRandomWord(arr, randomIndex);
+    // Get the random word and store this to app.randomWord
+    app.randomWord = app.getRandomWord(arr, randomIndex);
 
     // Get the hint of the random word
-    const wordHint = gtwApp.getWordHint(arr, randomIndex);
+    const wordHint = app.getWordHint(arr, randomIndex);
 
     // Display the hint
-    gtwApp.displayHint(wordHint);
+    app.displayHint(wordHint);
 
     // Display the guess boxes
-    gtwApp.generateGuessBoxes(gtwApp.randomWord);
+    app.generateGuessBoxes(app.randomWord);
 }
 
 // Function to generate secret word boxes
-gtwApp.generateGuessBoxes = (word) => {
+app.generateGuessBoxes = (word) => {
     const wordLetterArray = word.split('');
 
     // Loop through the array
@@ -121,42 +119,42 @@ gtwApp.generateGuessBoxes = (word) => {
 
         // Add space styling if space exists (gray background)
         if (arrayElement === " ") {
-            $secretWord.append(`<div class="secretLetter secretLetter${index}"></div>`);
+            app.$secretWord.append(`<div class="secretLetter secretLetter${index}"></div>`);
             $(`.secretLetter${index}`).addClass("space");
         } else {
-            $secretWord.append(`<div class="secretLetter secretLetter${index}">?</div>`);
+            app.$secretWord.append(`<div class="secretLetter secretLetter${index}">?</div>`);
         }
     });
 }
 
 // Listen to button click event
-gtwApp.guessLetter = () => {
-    let randomWord = gtwApp.randomWord;
+app.guessLetter = () => {
+    let randomWord = app.randomWord;
     let randomWordLetterCount = randomWord.replace(/ /, '').length;
 
     $('.letter').off('click').on('click', function () {
         const guess = $(this).text().toLowerCase();
 
-        // We can use the gtwApp.randomWord property (randomWord variable) here. Split the word to create an array of letters that we can use to loop through later.
+        // We can use the app.randomWord property (randomWord variable) here. Split the word to create an array of letters that we can use to loop through later.
         const wordLetterArray = randomWord.split('');
 
         // Let's check if the guess is incorrect. If it is, increment the wrongAttemptCounter by 1 and keep track of the count
         if (randomWord.indexOf(guess) < 0) {
-            gtwApp.wrongAttemptCounter += 1;
-            $(`.emoji li:nth-child(${gtwApp.wrongAttemptCounter}) i`).attr("class", "fas fa-skull-crossbones").css("color", "#FC4445");;
+            app.wrongAttemptCounter += 1;
+            $(`.emoji li:nth-child(${app.wrongAttemptCounter}) i`).attr("class", "fas fa-skull-crossbones").css("color", "#FC4445");;
 
-            $wrongSound[0].play();
+            app.$wrongSound[0].play();
         }
 
         // If the wrongAttemptCounter reaches the maximum lives.  If it's equal, display "Game Over!" else, loop through the random array word and check if the guess matches any of the letter.
-        if (gtwApp.wrongAttemptCounter === gtwApp.lives) {
-            $result.toggleClass('hideMe');
-            $gameOverSound[0].play();
-            gtwApp.disableKeyPad();
-            $resultContent.text('Game over!');
-            $answer.text(gtwApp.randomWord);
-            $playAgain.toggleClass('pulseReplay');
-            $playAgain.focus();
+        if (app.wrongAttemptCounter === app.lives) {
+            app.$result.toggleClass('hideMe');
+            app.$gameOverSound[0].play();
+            app.disableKeyPad();
+            app.$resultContent.text('Game over!');
+            app.$answer.text(app.randomWord);
+            app.$playAgain.toggleClass('pulseReplay');
+            app.$playAgain.focus();
 
         } else {
 
@@ -170,69 +168,69 @@ gtwApp.guessLetter = () => {
 
                     $(letterIndex).text(`${letter.toUpperCase()}`).addClass('correctGuess');
 
-                    gtwApp.correctGuessCounter += 1; 
+                    app.correctGuessCounter += 1; 
 
-                    $correctSound[0].play();
+                    app.$correctSound[0].play();
                 }
             });
 
             // If the correctGuessCount matches the total count of letters (excluding spaces), display Winner!
-            if (gtwApp.correctGuessCounter === randomWordLetterCount) {
-                $result.toggleClass('hideMe');
-                $winSound[0].play();
-                gtwApp.disableKeyPad();
-                $resultContent.text('You win!');
-                $answer.text(gtwApp.randomWord);
+            if (app.correctGuessCounter === randomWordLetterCount) {
+                app.$result.toggleClass('hideMe');
+                app.$winSound[0].play();
+                app.disableKeyPad();
+                app.$resultContent.text('You win!');
+                app.$answer.text(app.randomWord);
 
-                $playAgain.toggleClass('pulseReplay');
-                $playAgain.focus();
+                app.$playAgain.toggleClass('pulseReplay');
+                app.$playAgain.focus();
             }
         }
     });
 }
 
-gtwApp.startGame = function() {
+app.startGame = function() {
     $(this).toggleClass('playClicked');
     $(this).attr('disabled', 'disabled');
-    gtwApp.renderGuessWord(gtwApp.secretWordArrayOfObjects);
-    gtwApp.renderAlphaKeys();
-    gtwApp.guessLetter();
+    app.renderGuessWord(app.secretWordArrayOfObjects);
+    app.renderAlphaKeys();
+    app.guessLetter();
 }
 
-gtwApp.disableKeyPad = () => {
+app.disableKeyPad = () => {
     $('.letter').attr('disabled', 'disabled');
 }
 
 // Function to reset counters back to zero
-gtwApp.resetCounters = function() {
-    gtwApp.wrongAttemptCounter = 0;
-    gtwApp.correctGuessCounter = 0;
+app.resetCounters = function() {
+    app.wrongAttemptCounter = 0;
+    app.correctGuessCounter = 0;
 }
 
-gtwApp.resetEmoji = () => {
-    for (let i = 1; i <= gtwApp.lives; i++) {
+app.resetEmoji = () => {
+    for (let i = 1; i <= app.lives; i++) {
         $(`.emoji li:nth-child(${i}) i`).attr("class", "far fa-smile").css("color", "lightGreen");
     }
 }
 
 // Function to reset the game
-gtwApp.resetGame = () => {
-    $playAgain.off('click').on('click', function() {
+app.resetGame = () => {
+    app.$playAgain.off('click').on('click', function() {
         // Remove the pulseReplay css
         $(this).removeClass('pulseReplay');
 
-        $playAgain.blur();
+        app.$playAgain.blur();
 
         // Reset the result text
-        if (gtwApp.wrongAttemptCounter > 0 || gtwApp.correctGuessCounter > 0) {
-            $result.addClass('hideMe');
-            $resultContent.text('');
-            $answer.text('');
+        if (app.wrongAttemptCounter > 0 || app.correctGuessCounter > 0) {
+            app.$result.addClass('hideMe');
+            app.$resultContent.text('');
+            app.$answer.text('');
         }
 
         // Reset all counters
-        gtwApp.resetCounters();
-        gtwApp.resetEmoji();
+        app.resetCounters();
+        app.resetEmoji();
         
         // Remove disabled attribute of the alpha keys
         $('.letter').removeAttr('disabled');
@@ -241,17 +239,17 @@ gtwApp.resetGame = () => {
         $('.secretLetter').remove();
         
         // Render the guess word in the UI
-        gtwApp.renderGuessWord(gtwApp.secretWordArrayOfObjects);
+        app.renderGuessWord(app.secretWordArrayOfObjects);
 
         // Start listening on user's guess
-        gtwApp.guessLetter();
+        app.guessLetter();
     });
 }
 
 // Function to decode keypresses (using keyup). only allow letters!
-gtwApp.decodeKey = () => {
+app.decodeKey = () => {
     // Call guessLetter() to start listening.  Click event will be triggered when a key is pressed
-    gtwApp.guessLetter();
+    app.guessLetter();
 
     $('body').on('keyup', function(e) {
         let letterTyped = String.fromCharCode(e.which).toUpperCase();
@@ -274,21 +272,21 @@ gtwApp.decodeKey = () => {
     });
 }
 
-// Create gtwApp init function that will call the functions needed for the app
-gtwApp.init = function() {
+// Create app init function that will call the functions needed for the app
+app.init = function() {
     // Start the game
-    gtwApp.startGame();
+    app.startGame();
 
     // Listen if user resets the game
-    gtwApp.resetGame();
+    app.resetGame();
 
     // Listen if user uses keyboard
-    gtwApp.decodeKey();
+    app.decodeKey();
 
-    $result.toggleClass('hideMe');
+    app.$result.toggleClass('hideMe');
 }
 
 $(function () {
-    // Initialize gtwApp
-    gtwApp.init();
+    // Initialize app
+    app.init();
 })
