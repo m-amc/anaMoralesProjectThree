@@ -1,16 +1,66 @@
+h3 {
+    display: none;
+    color: $gray;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    letter-spacing: 0.1rem;
+
+    @include desktop {
+        display: block;
+    }
+}
+
 main {
     height: calc(100vh - 5rem);
+
+    @include phone {
+        padding-top: 3rem;
+    }
+
+    @include tablet {
+        height: calc(100vh - 10rem);
+    }
+
+    @include desktopShorter {
+        padding-top: 2rem;
+    }
 }
 
 .mainBorder {
     border-radius: 5px;
     box-shadow: 0 0 0.5rem $gray;
     padding-bottom: 0.5rem;
+
+    @include phoneBigger {
+        padding-top: 1rem;
+    }
+
+    @include tablet {
+        box-shadow: 0.5rem 0.5rem 1.5rem $darkerAccent;
+        border-radius: 2%;
+        padding: 1rem;
+    }
+
+    @include desktopBigger {
+        padding: 2rem;
+    }
 }
 
 .sectionHint {
     height: 30vh;
     padding: 0 0.5rem;
+
+    @include tablet {
+        height: 37vh;
+    }
+
+    @include desktop {
+        height: 40vh;
+    }
+
+    @include desktopShorter {
+        height: 35vh;
+    }
 }
 
 .sectionHint .container {
@@ -43,6 +93,12 @@ main {
         border-radius: 50%;
         letter-spacing: 0.15rem;
 
+        @include tablet {
+            top: 27%;
+            left: 23%;
+            right: 23%;
+        }
+
         p.winLose {
             font-size: 3.5rem;
             color: $white;
@@ -57,15 +113,41 @@ main {
     }
 }
 
+.hintAndSecret {
+    @include phoneBigger {
+        padding-top: 5%;
+    }
+
+    @include desktop {
+        padding-top: 0;
+    }
+}
+
 p.hint {
-    padding: 0.3rem;
+    margin-top: 0.5rem;
+    padding: 0.5rem;
     text-align: center;
     color: darken($white, 5%);
     border: 1px solid $gray;
     border-radius: 5px;
     box-shadow: 1px 1px 2px $gray;
     letter-spacing: 0.1rem;
+    font-size: 1.7rem;
 
+    @include phone {
+        margin: 1.5rem 0;
+        padding: 1rem;
+    }
+
+    @include tablet {
+        padding: 2rem;
+        font-size: 2.5rem;
+        letter-spacing: 0.2rem;
+    }
+
+    @include desktopShorter {
+        font-size: 2rem;
+    }
 }
 
 .secretWord {
@@ -75,15 +157,63 @@ p.hint {
     flex-wrap: wrap;
     flex: 1 auto;
     justify-content: space-between;
+
+    @include desktop {
+        padding: 3% 0;
+    }
+
+    @include desktopShorter {
+        padding: 3% 0;
+    }
+
+    div {
+        @include desktop {
+            width: 6rem;
+            height: 6rem;
+        }
+
+        @include desktopShorter {
+            width: 5rem;
+            height: 5rem;
+        }
+    }
 }
 
 .secretLetter {
     text-align: center;
     border: 2px solid $darkerAccent;
+    background-color: $darkerAccent;
     border-radius: 10%;
     padding: 0.3rem 0.7rem;
     margin-bottom: 0.3rem;
     color: $white;
+
+    @include phone {
+        font-size: 2rem;
+    }
+
+    @include tablet {
+        width: 5rem;
+        height: 5rem;
+        padding: 1rem;
+    }
+
+    @include desktopBigger {
+        width: 6rem;
+        height: 6rem;
+        font-size: 3rem;
+    }
+}
+
+.sectionAlpha {
+    @include tablet {
+        padding-top: 1%;
+        height: 50%;
+    }
+
+    @include desktopShorter {
+        padding-top: 3%;
+    }
 }
 
 .alphaKeys {
@@ -91,15 +221,53 @@ p.hint {
     flex-wrap: wrap;
     flex: 1 auto;
     justify-content: center;
+    margin-top: 1rem;
+
+    @include phone {
+        margin-top: 5rem;
+    }
+
+    @include desktop {
+        margin-top: 0
+    }
 
     button {
-        width: 4.6rem;
-        height: 4.6rem;
+        width: 4.4rem;
+        height: 4.4rem;
         font-size: 2rem;
-        margin: 0.3rem;
+        margin: 0.5rem;
         border: 2px solid $darkerAccent;
         border-radius: 15px;
         background: $white;
+
+        @include tablet {
+            width: 6rem;
+            height: 6rem;
+            font-size: 2rem;
+            margin: 0.5rem;
+        }
+
+        @include desktop {
+            margin: 1rem;
+            width: 6rem;
+            height: 6rem;
+            font-size: 3rem;
+        }
+
+        @include desktopShorter {
+            width: 6rem;
+            height: 6rem;
+            font-size: 2rem;
+            margin: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        @include desktopBigger {
+            margin: 1rem;
+            width: 6.5rem;
+            height: 6.5rem;
+            font-size: 3rem;
+        }
 
         &:focus {
             background: $accent;
@@ -116,10 +284,18 @@ p.hint {
     width: 25%;
     background: transparent;
     color: $white;
-    font-size: 3.5rem;
+    font-size: 3rem;
 
     &:hover {
         color: $accent;
+    }
+
+    @include phone {
+        font-size: 3.5rem;
+    }
+
+    @include tablet {
+        font-size: 4rem;
     }
 }
 
@@ -129,8 +305,17 @@ p.hint {
     display: flex;
     justify-content: space-between;
     color: lightgreen;
+    font-size: 2.5rem;
 
     margin: 0;
+
+    @include phone {
+        font-size: 3.2rem;
+    }
+
+    @include tablet {
+        font-size: 4rem;
+    }
 }
 
 .emojiSkull {

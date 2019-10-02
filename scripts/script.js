@@ -122,7 +122,7 @@ app.generateGuessBoxes = (word) => {
             app.$secretWord.append(`<div class="secretLetter secretLetter${index}"></div>`);
             $(`.secretLetter${index}`).addClass("space");
         } else {
-            app.$secretWord.append(`<div class="secretLetter secretLetter${index}">?</div>`);
+            app.$secretWord.append(`<div class="secretLetter secretLetter${index}"></div>`);
         }
     });
 }

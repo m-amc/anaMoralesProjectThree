@@ -7,3 +7,38 @@ $darkerAccent: #45A29E;
 $accent: #66FCF1;
 $life: lightGreen;
 $lose: #FC4445;
+
+@mixin phone {
+    @media (min-width: 360px) {         @content; 
+    }
+}
+
+@mixin phoneBigger {
+    @media (min-width: 375px) {
+        @content; 
+    }
+}
+
+@mixin tablet {
+    @media (min-width: 768px) {         
+        @content; 
+    }
+}
+
+@mixin desktop {
+    @media (min-width: 1024px) {        
+        @content; 
+    }
+}
+
+@mixin desktopShorter {
+    @media (min-width: 1030px) and (min-height: 525px) {
+        @content;
+    }
+}
+
+@mixin desktopBigger {
+    @media (min-width: 1280px) {        
+        @content; 
+    }
+}

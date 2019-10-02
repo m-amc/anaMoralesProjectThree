@@ -186,6 +186,13 @@ header {
   letter-spacing: 0.1rem;
   height: 5rem;
   padding: 0.5rem 0; }
+  @media (min-width: 360px) {
+    header {
+      padding: 1rem 0; } }
+  @media (min-width: 768px) {
+    header {
+      height: 10rem;
+      line-height: 3rem; } }
 
 .headerContainer {
   display: -webkit-box;
@@ -204,31 +211,86 @@ header {
     align-items: center; }
     .headerContainer .help:hover {
       color: #66FCF1; }
+  @media (min-width: 768px) {
+    .headerContainer label {
+      font-size: 3.5rem; } }
 
 .headerContainer h1 {
   font-size: 2.5rem;
   font-weight: 700;
   color: #66FCF1; }
+  @media (min-width: 768px) {
+    .headerContainer h1 {
+      font-size: 5rem;
+      text-align: center;
+      padding: 2rem 0; } }
   .headerContainer h1 span {
     font-size: 1rem;
     display: block;
     color: #C5C6C7; }
+    @media (min-width: 768px) {
+      .headerContainer h1 span {
+        font-size: 1.3rem; } }
+    @media (min-width: 1024px) {
+      .headerContainer h1 span {
+        font-size: 1.5rem;
+        line-height: 4rem; } }
 
 .headerContainer h2 {
   font-size: 2rem; }
 
+h3 {
+  display: none;
+  color: #C5C6C7;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  letter-spacing: 0.1rem; }
+  @media (min-width: 1024px) {
+    h3 {
+      display: block; } }
+
 main {
   height: calc(100vh - 5rem); }
+  @media (min-width: 360px) {
+    main {
+      padding-top: 3rem; } }
+  @media (min-width: 768px) {
+    main {
+      height: calc(100vh - 10rem); } }
+  @media (min-width: 1030px) and (min-height: 525px) {
+    main {
+      padding-top: 2rem; } }
 
 .mainBorder {
   border-radius: 5px;
   -webkit-box-shadow: 0 0 0.5rem #C5C6C7;
   box-shadow: 0 0 0.5rem #C5C6C7;
   padding-bottom: 0.5rem; }
+  @media (min-width: 375px) {
+    .mainBorder {
+      padding-top: 1rem; } }
+  @media (min-width: 768px) {
+    .mainBorder {
+      -webkit-box-shadow: 0.5rem 0.5rem 1.5rem #45A29E;
+      box-shadow: 0.5rem 0.5rem 1.5rem #45A29E;
+      border-radius: 2%;
+      padding: 1rem; } }
+  @media (min-width: 1280px) {
+    .mainBorder {
+      padding: 2rem; } }
 
 .sectionHint {
   height: 30vh;
   padding: 0 0.5rem; }
+  @media (min-width: 768px) {
+    .sectionHint {
+      height: 37vh; } }
+  @media (min-width: 1024px) {
+    .sectionHint {
+      height: 40vh; } }
+  @media (min-width: 1030px) and (min-height: 525px) {
+    .sectionHint {
+      height: 35vh; } }
 
 .sectionHint .container {
   display: -webkit-box;
@@ -260,6 +322,11 @@ main {
     border: 1px solid transparent;
     border-radius: 50%;
     letter-spacing: 0.15rem; }
+    @media (min-width: 768px) {
+      .sectionHint .container .result {
+        top: 27%;
+        left: 23%;
+        right: 23%; } }
     .sectionHint .container .result p.winLose {
       font-size: 3.5rem;
       color: #FFFAFA;
@@ -269,15 +336,37 @@ main {
       color: #C5C6C7;
       text-transform: uppercase; }
 
+@media (min-width: 375px) {
+  .hintAndSecret {
+    padding-top: 5%; } }
+
+@media (min-width: 1024px) {
+  .hintAndSecret {
+    padding-top: 0; } }
+
 p.hint {
-  padding: 0.3rem;
+  margin-top: 0.5rem;
+  padding: 0.5rem;
   text-align: center;
   color: #ffe1e1;
   border: 1px solid #C5C6C7;
   border-radius: 5px;
   -webkit-box-shadow: 1px 1px 2px #C5C6C7;
   box-shadow: 1px 1px 2px #C5C6C7;
-  letter-spacing: 0.1rem; }
+  letter-spacing: 0.1rem;
+  font-size: 1.7rem; }
+  @media (min-width: 360px) {
+    p.hint {
+      margin: 1.5rem 0;
+      padding: 1rem; } }
+  @media (min-width: 768px) {
+    p.hint {
+      padding: 2rem;
+      font-size: 2.5rem;
+      letter-spacing: 0.2rem; } }
+  @media (min-width: 1030px) and (min-height: 525px) {
+    p.hint {
+      font-size: 2rem; } }
 
 .secretWord {
   padding: 5% 0;
@@ -293,14 +382,51 @@ p.hint {
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between; }
+  @media (min-width: 1024px) {
+    .secretWord {
+      padding: 3% 0; } }
+  @media (min-width: 1030px) and (min-height: 525px) {
+    .secretWord {
+      padding: 3% 0; } }
+  @media (min-width: 1024px) {
+    .secretWord div {
+      width: 6rem;
+      height: 6rem; } }
+  @media (min-width: 1030px) and (min-height: 525px) {
+    .secretWord div {
+      width: 5rem;
+      height: 5rem; } }
 
 .secretLetter {
   text-align: center;
   border: 2px solid #45A29E;
+  background-color: #45A29E;
   border-radius: 10%;
   padding: 0.3rem 0.7rem;
   margin-bottom: 0.3rem;
   color: #FFFAFA; }
+  @media (min-width: 360px) {
+    .secretLetter {
+      font-size: 2rem; } }
+  @media (min-width: 768px) {
+    .secretLetter {
+      width: 5rem;
+      height: 5rem;
+      padding: 1rem; } }
+  @media (min-width: 1280px) {
+    .secretLetter {
+      width: 6rem;
+      height: 6rem;
+      font-size: 3rem; } }
+
+@media (min-width: 768px) {
+  .sectionAlpha {
+    padding-top: 1%;
+    height: 50%; } }
+
+@media (min-width: 1030px) and (min-height: 525px) {
+  .sectionAlpha {
+    padding-top: 3%; } }
 
 .alphaKeys {
   display: -webkit-box;
@@ -313,15 +439,47 @@ p.hint {
   flex: 1 auto;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
-  justify-content: center; }
+  justify-content: center;
+  margin-top: 1rem; }
+  @media (min-width: 360px) {
+    .alphaKeys {
+      margin-top: 5rem; } }
+  @media (min-width: 1024px) {
+    .alphaKeys {
+      margin-top: 0; } }
   .alphaKeys button {
-    width: 4.6rem;
-    height: 4.6rem;
+    width: 4.4rem;
+    height: 4.4rem;
     font-size: 2rem;
-    margin: 0.3rem;
+    margin: 0.5rem;
     border: 2px solid #45A29E;
     border-radius: 15px;
     background: #FFFAFA; }
+    @media (min-width: 768px) {
+      .alphaKeys button {
+        width: 6rem;
+        height: 6rem;
+        font-size: 2rem;
+        margin: 0.5rem; } }
+    @media (min-width: 1024px) {
+      .alphaKeys button {
+        margin: 1rem;
+        width: 6rem;
+        height: 6rem;
+        font-size: 3rem; } }
+    @media (min-width: 1030px) and (min-height: 525px) {
+      .alphaKeys button {
+        width: 6rem;
+        height: 6rem;
+        font-size: 2rem;
+        margin: 0.5rem;
+        margin-bottom: 1rem; } }
+    @media (min-width: 1280px) {
+      .alphaKeys button {
+        margin: 1rem;
+        width: 6.5rem;
+        height: 6.5rem;
+        font-size: 3rem; } }
     .alphaKeys button:focus {
       background: #66FCF1; }
 
@@ -333,9 +491,15 @@ p.hint {
   width: 25%;
   background: transparent;
   color: #FFFAFA;
-  font-size: 3.5rem; }
+  font-size: 3rem; }
   .replay:hover {
     color: #66FCF1; }
+  @media (min-width: 360px) {
+    .replay {
+      font-size: 3.5rem; } }
+  @media (min-width: 768px) {
+    .replay {
+      font-size: 4rem; } }
 
 .emoji {
   list-style: none;
@@ -347,7 +511,14 @@ p.hint {
   -ms-flex-pack: justify;
   justify-content: space-between;
   color: lightgreen;
+  font-size: 2.5rem;
   margin: 0; }
+  @media (min-width: 360px) {
+    .emoji {
+      font-size: 3.2rem; } }
+  @media (min-width: 768px) {
+    .emoji {
+      font-size: 4rem; } }
 
 .emojiSkull {
   color: #FC4445; }
@@ -393,6 +564,12 @@ aside {
     padding: 1rem;
     border-radius: 5px;
     border: 1px solid #FFFAFA; }
+  @media (min-width: 360px) {
+    aside {
+      line-height: 3rem; } }
+  @media (min-width: 768px) {
+    aside {
+      top: 10rem; } }
 
 aside h2 {
   text-align: center; }
@@ -406,116 +583,3 @@ aside ul {
 
 .checkToggle:checked + aside {
   display: block; }
-
-@media (min-width: 360px) {
-  header {
-    padding: 1rem 0; }
-  main {
-    padding-top: 3rem; }
-  aside {
-    line-height: 3rem; } }
-
-@media (min-width: 375px) {
-  main {
-    padding-top: 1.5rem; }
-  .mainBorder {
-    padding-top: 1rem; }
-  .hintAndSecret {
-    padding-top: 5%; }
-  .sectionAlpha {
-    padding-top: 1%; }
-  .alphaKeys button {
-    width: 5rem;
-    height: 5rem;
-    font-size: 2rem;
-    margin: 0.5rem; } }
-
-@media (min-width: 600px) {
-  main {
-    height: calc(100vh - 10rem); }
-  .mainBorder {
-    -webkit-box-shadow: 0.5rem 0.5rem 1.5rem #45A29E;
-    box-shadow: 0.5rem 0.5rem 1.5rem #45A29E;
-    border-radius: 2%;
-    padding: 1rem; }
-  header {
-    height: 10rem;
-    line-height: 3rem; }
-  aside {
-    top: 10rem; }
-  .headerContainer h1 {
-    font-size: 5rem;
-    text-align: center;
-    padding: 2rem 0; }
-    .headerContainer h1 span {
-      font-size: 1.3rem; }
-  .headerContainer label {
-    font-size: 3.5rem; }
-  .sectionHint {
-    height: 37vh; }
-    .sectionHint p {
-      font-size: 2.5rem;
-      padding: 1rem; }
-    .sectionHint .container .result {
-      top: 27%;
-      left: 23%;
-      right: 23%; }
-  .sectionAlpha {
-    padding-top: 1%;
-    height: 50%; }
-  .emoji,
-  .replay {
-    font-size: 4rem; }
-  .alphaKeys {
-    padding: 1rem; }
-    .alphaKeys button {
-      width: 6rem;
-      height: 6rem;
-      font-size: 2rem;
-      margin: 0.5rem; }
-  .secretLetter {
-    width: 5rem;
-    height: 5rem;
-    padding: 1rem; }
-  .replay {
-    top: 30%; } }
-
-@media (min-width: 1024px) {
-  .sectionHint {
-    height: 40vh; }
-  .alphaKeys button {
-    margin: 1rem; }
-  .headerContainer h1 span {
-    font-size: 1.5rem;
-    line-height: 4rem; } }
-
-@media (min-width: 1030px) and (min-height: 525px) {
-  .sectionHint {
-    height: 35vh; }
-    .sectionHint p {
-      font-size: 2rem;
-      padding: 0.5rem; }
-  .hintAndSecret {
-    padding-top: 2%; }
-  .sectionAlpha {
-    padding-top: 3%; }
-  .alphaKeys button {
-    width: 5.5rem;
-    height: 5.5rem;
-    font-size: 2rem;
-    margin: 0.5rem;
-    margin-bottom: 1rem; } }
-
-@media (min-width: 1280px) {
-  .mainBorder {
-    padding: 2rem; }
-  .secretLetter {
-    width: 6rem;
-    height: 6rem;
-    font-size: 3rem; }
-  .alphaKeys button {
-    margin: 0.7rem; } }
-
-@media (min-width: 1440px) {
-  main {
-    padding-top: 5rem; } }

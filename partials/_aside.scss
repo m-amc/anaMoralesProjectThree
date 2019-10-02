@@ -16,6 +16,14 @@ aside {
         border-radius: 5px;
         border: 1px solid $white;
     }
+
+    @include phone {
+        line-height: 3rem;
+    }
+
+    @include tablet {
+        top: 10rem;
+    }
 }
 
 aside h2 {
