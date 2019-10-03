@@ -634,12 +634,6 @@ p.hint {
   }
 }
 
-@media (min-width: 375px) {
-  .alphaKeys button {
-    height: 4.5rem;
-  }
-}
-
 @media (min-width: 768px) {
   .alphaKeys button {
     width: 8rem;

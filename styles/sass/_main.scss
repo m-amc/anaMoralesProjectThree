@@ -255,10 +255,6 @@ p.hint {
             height: 4.2rem;
         }
 
-        @include phoneBigger {
-            height: 4.5rem;
-        }
-
         @include tablet {
             width: 8rem;
             height: 6.5rem;
