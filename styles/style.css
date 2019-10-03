@@ -457,12 +457,6 @@ p.hint {
   font-size: 1.7rem;
 }
 
-@media (min-width: 360px) {
-  p.hint {
-    padding: 1rem;
-  }
-}
-
 @media (min-width: 768px) {
   p.hint {
     padding: 2rem;
@@ -630,7 +624,7 @@ p.hint {
 @media (min-width: 360px) {
   .alphaKeys button {
     width: calc((100% / 4) - 1rem);
-    height: 3.5rem;
+    height: 3.2rem;
   }
 }
 
