@@ -630,7 +630,7 @@ p.hint {
 @media (min-width: 360px) {
   .alphaKeys button {
     width: calc((100% / 4) - 1rem);
-    height: 4.2rem;
+    height: 3.5rem;
   }
 }
 
