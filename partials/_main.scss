@@ -92,6 +92,7 @@ main {
         border: 1px solid transparent;
         border-radius: 50%;
         letter-spacing: 0.15rem;
+        z-index: 99;
 
         @include tablet {
             top: 27%;

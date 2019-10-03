@@ -321,7 +321,8 @@ main {
     padding: 5rem;
     border: 1px solid transparent;
     border-radius: 50%;
-    letter-spacing: 0.15rem; }
+    letter-spacing: 0.15rem;
+    z-index: 99; }
     @media (min-width: 768px) {
       .sectionHint .container .result {
         top: 27%;
