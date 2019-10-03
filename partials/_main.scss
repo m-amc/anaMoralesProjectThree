@@ -179,30 +179,59 @@ p.hint {
     }
 }
 
-.secretLetter {
-    text-align: center;
-    border: 2px solid $darkerAccent;
-    background-color: $darkerAccent;
-    border-radius: 10%;
-    padding: 0.3rem 0.7rem;
-    margin-bottom: 0.3rem;
-    color: $white;
-
-    @include phone {
-        font-size: 2rem;
-    }
+// Secret Letter Card container
+.card {
+    width: 3rem;
+    height: 3.5rem;
+    position: relative;
+    perspective: 800px;
 
     @include tablet {
         width: 5rem;
         height: 5rem;
-        padding: 1rem;
     }
 
     @include desktopBigger {
         width: 6rem;
         height: 6rem;
-        font-size: 3rem;
     }
+}
+
+.secretLetter {
+    text-align: center;
+    border: 2px solid $darkerAccent;
+    background-color: $darkerAccent;
+    padding: 0.3rem 0.7rem;
+    margin-bottom: 0.3rem;
+    color: $white;
+}
+
+// Position the cards on top of one another
+.front, .back {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    transition: all 0.5s;
+    backface-visibility: hidden;
+    border-radius: 10%;
+}
+
+// By default, it is the back of the card that is shown to the user so rotate the front card by 180deg
+.front {
+    transform: rotateY(180deg);
+}
+
+.back {
+    background: $gray;
+    
+}
+
+.flipBack {
+    transform: rotateY(-180deg);
+}
+
+.flipFront {
+    transform: rotateY(0);
 }
 
 .sectionAlpha {
@@ -278,6 +307,14 @@ p.hint {
 .correctGuess {
     font-weight: 700;
     font-size: 2rem;
+
+    @include phone {
+        font-size: 2rem;
+    }
+
+    @include tablet {
+        font-size: 3rem;
+    }
 }
 
 .replay {

@@ -119,10 +119,21 @@ app.generateGuessBoxes = (word) => {
 
         // Add space styling if space exists (gray background)
         if (arrayElement === " ") {
-            app.$secretWord.append(`<div class="secretLetter secretLetter${index}"></div>`);
-            $(`.secretLetter${index}`).addClass("space");
+            app.$secretWord.append(`
+            <div class="card">
+                <div class="secretLetter back back${index}"></div>
+                <div class="secretLetter front front${index}"></div>
+            </div>`);
+
+            $(`.back${index}`).addClass("space");
+            $(`.front${index}`).addClass("space");
+
         } else {
-            app.$secretWord.append(`<div class="secretLetter secretLetter${index}"></div>`);
+            app.$secretWord.append(`
+            <div class="card">
+                <div class="secretLetter back back${index}"></div>
+                <div class="secretLetter front front${index}"></div>
+            </div>`);
         }
     });
 }
@@ -164,9 +175,13 @@ app.guessLetter = () => {
             wordLetterArray.forEach((letter, index) => {
                 // We still have to compare guess and letter here since we want to make sure that the letter will be revealed in the correct position.
                 if (guess === letter) {
-                    let letterIndex = `.secretLetter${index}`;
+                    let frontIndex = `.front${index}`;
+                    let backIndex = `.back${index}`;
 
-                    $(letterIndex).text(`${letter.toUpperCase()}`).addClass('correctGuess');
+                    $(backIndex).addClass('flipBack');
+                    $(frontIndex).addClass('flipFront');
+
+                    $(frontIndex).text(`${letter.toUpperCase()}`).addClass('correctGuess');
 
                     app.correctGuessCounter += 1; 
 
@@ -237,6 +252,7 @@ app.resetGame = () => {
 
         // Remove generated secret word elements
         $('.secretLetter').remove();
+        $('.card').remove();
         
         // Render the guess word in the UI
         app.renderGuessWord(app.secretWordArrayOfObjects);

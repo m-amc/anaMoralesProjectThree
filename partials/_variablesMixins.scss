@@ -9,7 +9,8 @@ $life: lightGreen;
 $lose: #FC4445;
 
 @mixin phone {
-    @media (min-width: 360px) {         @content; 
+    @media (min-width: 360px) {
+        @content; 
     }
 }
 

@@ -397,27 +397,54 @@ p.hint {
       width: 5rem;
       height: 5rem; } }
 
+.card {
+  width: 3rem;
+  height: 3.5rem;
+  position: relative;
+  -webkit-perspective: 800px;
+  perspective: 800px; }
+  @media (min-width: 768px) {
+    .card {
+      width: 5rem;
+      height: 5rem; } }
+  @media (min-width: 1280px) {
+    .card {
+      width: 6rem;
+      height: 6rem; } }
+
 .secretLetter {
   text-align: center;
   border: 2px solid #45A29E;
   background-color: #45A29E;
-  border-radius: 10%;
   padding: 0.3rem 0.7rem;
   margin-bottom: 0.3rem;
   color: #FFFAFA; }
-  @media (min-width: 360px) {
-    .secretLetter {
-      font-size: 2rem; } }
-  @media (min-width: 768px) {
-    .secretLetter {
-      width: 5rem;
-      height: 5rem;
-      padding: 1rem; } }
-  @media (min-width: 1280px) {
-    .secretLetter {
-      width: 6rem;
-      height: 6rem;
-      font-size: 3rem; } }
+
+.front, .back {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  -webkit-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 10%; }
+
+.front {
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg); }
+
+.back {
+  background: #C5C6C7; }
+
+.flipBack {
+  -webkit-transform: rotateY(-180deg);
+  transform: rotateY(-180deg); }
+
+.flipFront {
+  -webkit-transform: rotateY(0);
+  transform: rotateY(0); }
 
 @media (min-width: 768px) {
   .sectionAlpha {
@@ -486,6 +513,12 @@ p.hint {
 .correctGuess {
   font-weight: 700;
   font-size: 2rem; }
+  @media (min-width: 360px) {
+    .correctGuess {
+      font-size: 2rem; } }
+  @media (min-width: 768px) {
+    .correctGuess {
+      font-size: 3rem; } }
 
 .replay {
   width: 25%;
