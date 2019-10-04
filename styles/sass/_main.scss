@@ -48,6 +48,10 @@ main {
 .sectionHint {
     height: 30vh;
     padding: 0 0.5rem;
+
+    @include desktop {
+        height: 35vh;
+    }
 }
 
 .sectionHint .container {
@@ -125,6 +129,10 @@ p.hint {
         padding: 2rem;
         font-size: 2.5rem;
         letter-spacing: 0.2rem;
+    }
+
+    @include desktop {
+        padding: 1rem;
     }
 
     @include desktopShorter {
