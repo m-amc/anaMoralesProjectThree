@@ -12,6 +12,8 @@ app.$wrongSound = $('#wrongSound');
 app.$correctSound = $('#correctSound');
 app.$winSound = $('#winSound');
 app.$gameOverSound = $('#gameOverSound');
+app.$soundIcon = $('.sound i')
+app.soundOn = !true;
 
 // Create a secret word array. The array will hold objects (in preparation for the stretch goals)
 app.secretWordArrayOfObjects = [
@@ -154,13 +156,15 @@ app.guessLetter = () => {
             app.wrongAttemptCounter += 1;
             $(`.emoji li:nth-child(${app.wrongAttemptCounter}) i`).attr("class", "fas fa-skull-crossbones").css("color", "#FC4445");;
 
-            app.$wrongSound[0].play();
+            if (app.soundOn) app.$wrongSound[0].play();
         }
 
         // Check if the wrongAttemptCounter reaches the maximum lives.  If it's equal, display "Game Over!" else, loop through the random array word and check if the guess matches any of the letter.
         if (app.wrongAttemptCounter === app.lives) {
             app.$result.toggleClass('showResult');
-            app.$gameOverSound[0].play();
+
+            if (app.soundOn) app.$gameOverSound[0].play();
+            
             app.disableKeyPad();
             app.$resultContent.text('Game over!');
             app.$answer.text(app.randomWord);
@@ -185,14 +189,16 @@ app.guessLetter = () => {
 
                     app.correctGuessCounter += 1; 
 
-                    app.$correctSound[0].play();
+                    if (app.soundOn) app.$correctSound[0].play();
                 }
             });
 
             // If the correctGuessCount matches the total count of letters (excluding spaces), display Winner!
             if (app.correctGuessCounter === randomWordLetterCount) {
                 app.$result.toggleClass('showResult');
-                app.$winSound[0].play();
+                
+                if (app.soundOn) app.$winSound[0].play();
+                
                 app.disableKeyPad();
                 app.$resultContent.text('You win!');
                 app.$answer.text(app.randomWord);
@@ -288,6 +294,15 @@ app.decodeKey = () => {
     });
 }
 
+app.sound = () => {
+    app.$soundIcon.off('click').on('click', function() {
+        $(this).toggleClass('fa-volume-up');
+        app.soundOn = !app.soundOn;
+
+        if (app.soundOn) app.$correctSound[0].play();
+    })
+}
+
 // Create app init function that will call the functions needed for the app
 app.init = function() {
     // Start the game
@@ -298,6 +313,8 @@ app.init = function() {
 
     // Listen if user uses keyboard
     app.decodeKey();
+
+    app.sound();
 
     app.$result.toggleClass('showResult');
 }

@@ -19,7 +19,8 @@ header {
     display: flex;
     justify-content: space-between;
 
-    .help {
+    .help,
+    .sound {
         font-size: 2.3rem;
         display: flex;
         align-items: center;
@@ -33,6 +34,17 @@ header {
         @include tablet {
             font-size: 3.5rem;
         }
+    }
+}
+
+.headerIcons {
+    display: flex;
+    justify-content: space-between;
+
+    width: 20%;
+
+    @include desktop {
+        width: 10%;
     }
 }
 
