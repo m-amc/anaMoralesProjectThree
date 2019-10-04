@@ -24,6 +24,11 @@ aside {
     @include tablet {
         top: 10rem;
     }
+
+    @include desktop {
+        font-size: 3rem;
+        line-height: 4.2rem;
+    }
 }
 
 aside h2 {

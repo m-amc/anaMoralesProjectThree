@@ -842,6 +842,13 @@ aside div {
   }
 }
 
+@media (min-width: 1024px) {
+  aside {
+    font-size: 3rem;
+    line-height: 4.2rem;
+  }
+}
+
 aside h2 {
   text-align: center;
 }
